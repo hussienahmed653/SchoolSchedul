@@ -1,0 +1,17 @@
+C:\Users\hussi\source\repos\SchoolSchedule\SchoolSchedule.Application\bin\Debug\net8.0\SchoolSchedule.Application.deps.json
+C:\Users\hussi\source\repos\SchoolSchedule\SchoolSchedule.Application\bin\Debug\net8.0\SchoolSchedule.Application.dll
+C:\Users\hussi\source\repos\SchoolSchedule\SchoolSchedule.Application\bin\Debug\net8.0\SchoolSchedule.Application.pdb
+C:\Users\hussi\source\repos\SchoolSchedule\SchoolSchedule.Application\bin\Debug\net8.0\SchoolSchedule.Domain.dll
+C:\Users\hussi\source\repos\SchoolSchedule\SchoolSchedule.Application\bin\Debug\net8.0\SchoolSchedule.Domain.pdb
+C:\Users\hussi\source\repos\SchoolSchedule\SchoolSchedule.Application\obj\Debug\net8.0\SchoolSchedule.Application.csproj.AssemblyReference.cache
+C:\Users\hussi\source\repos\SchoolSchedule\SchoolSchedule.Application\obj\Debug\net8.0\SchoolSchedule.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hussi\source\repos\SchoolSchedule\SchoolSchedule.Application\obj\Debug\net8.0\SchoolSchedule.Application.AssemblyInfoInputs.cache
+C:\Users\hussi\source\repos\SchoolSchedule\SchoolSchedule.Application\obj\Debug\net8.0\SchoolSchedule.Application.AssemblyInfo.cs
+C:\Users\hussi\source\repos\SchoolSchedule\SchoolSchedule.Application\obj\Debug\net8.0\SchoolSchedule.Application.csproj.CoreCompileInputs.cache
+C:\Users\hussi\source\repos\SchoolSchedule\SchoolSchedule.Application\obj\Debug\net8.0\SchoolSc.3B7E35D0.Up2Date
+C:\Users\hussi\source\repos\SchoolSchedule\SchoolSchedule.Application\obj\Debug\net8.0\SchoolSchedule.Application.dll
+C:\Users\hussi\source\repos\SchoolSchedule\SchoolSchedule.Application\obj\Debug\net8.0\refint\SchoolSchedule.Application.dll
+C:\Users\hussi\source\repos\SchoolSchedule\SchoolSchedule.Application\obj\Debug\net8.0\SchoolSchedule.Application.pdb
+C:\Users\hussi\source\repos\SchoolSchedule\SchoolSchedule.Application\obj\Debug\net8.0\ref\SchoolSchedule.Application.dll
+C:\Users\hussi\source\repos\SchoolSchedule\SchoolSchedule.Application\bin\Debug\net8.0\SchoolSchedule.Application.runtimeconfig.json
+C:\Users\hussi\source\repos\SchoolSchedule\SchoolSchedule.Application\obj\Debug\net8.0\SchoolSchedule.Application.genruntimeconfig.cache

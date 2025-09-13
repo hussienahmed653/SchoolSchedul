@@ -1,0 +1,12 @@
+[
+  {
+    "ContainingType": "SchoolSchedule.Api.Controller.TestController",
+    "Method": "Get",
+    "RelativePath": "api/Test/Test",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]

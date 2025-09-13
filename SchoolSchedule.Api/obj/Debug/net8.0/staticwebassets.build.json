@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "NmmKa9a4ng73qvN5TycmiogfTKwsje/FYcwwCFGBMrc=",
+  "Source": "SchoolSchedule.Api",
+  "BasePath": "_content/SchoolSchedule.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
