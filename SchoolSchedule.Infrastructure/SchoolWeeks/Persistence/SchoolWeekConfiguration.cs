@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using SchoolSchedule.Domain;
 
-namespace SchoolSchedule.Infrastructure.SchoolWeeks
+namespace SchoolSchedule.Infrastructure.SchoolWeeks.Persistence
 {
     internal class SchoolWeekConfiguration : IEntityTypeConfiguration<SchoolWeek>
     {

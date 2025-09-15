@@ -7,5 +7,6 @@
         public string ClasseYear { get; set; }
         public int NumberOfClasses { get; set; }
         public ICollection<Departement> Departements { get; set; } = new List<Departement>();
+        public ICollection<SubjectAssignment> Assignments { get; set; } = new List<SubjectAssignment>();
     }
 }

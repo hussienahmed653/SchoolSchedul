@@ -28,7 +28,9 @@ namespace SchoolSchedule.Infrastructure.Migrations
                         .HasColumnType("int");
 
                     b.Property<Guid>("ClasseGuid")
-                        .HasColumnType("uniqueidentifier");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier")
+                        .HasDefaultValueSql("NEWID()");
 
                     b.Property<string>("ClasseYear")
                         .IsRequired()
@@ -52,7 +54,9 @@ namespace SchoolSchedule.Infrastructure.Migrations
                         .HasColumnType("int");
 
                     b.Property<Guid>("DepartementGuid")
-                        .HasColumnType("uniqueidentifier");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier")
+                        .HasDefaultValueSql("NEWID()");
 
                     b.Property<string>("DepartementName")
                         .IsRequired()
@@ -97,6 +101,74 @@ namespace SchoolSchedule.Infrastructure.Migrations
                     b.HasKey("SchoolWeekId");
 
                     b.ToTable("SchoolWeeks");
+                });
+
+            modelBuilder.Entity("SchoolSchedule.Domain.Subject", b =>
+                {
+                    b.Property<int>("SubjectId")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("SubjectGuid")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier")
+                        .HasDefaultValueSql("NEWID()");
+
+                    b.Property<string>("SubjectName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("SubjectId");
+
+                    b.ToTable("Subjects");
+                });
+
+            modelBuilder.Entity("SchoolSchedule.Domain.SubjectAssignment", b =>
+                {
+                    b.Property<int>("SubjectAssignmentId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("AddedOn")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<int>("Amount")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ClasseId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("DeletedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("DepartementId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("EvenOrOdd")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<Guid>("SubjectAssignmentGuid")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier")
+                        .HasDefaultValueSql("NEWID()");
+
+                    b.Property<int>("SubjectId")
+                        .HasColumnType("int");
+
+                    b.HasKey("SubjectAssignmentId");
+
+                    b.HasIndex("ClasseId");
+
+                    b.HasIndex("DepartementId");
+
+                    b.HasIndex("SubjectId", "ClasseId", "DepartementId", "EvenOrOdd", "Amount")
+                        .IsUnique();
+
+                    b.ToTable("SubjectAssignments");
                 });
 
             modelBuilder.Entity("SchoolSchedule.Domain.User", b =>
@@ -155,6 +227,33 @@ namespace SchoolSchedule.Infrastructure.Migrations
                     b.Navigation("Classe");
                 });
 
+            modelBuilder.Entity("SchoolSchedule.Domain.SubjectAssignment", b =>
+                {
+                    b.HasOne("SchoolSchedule.Domain.Classe", "Classe")
+                        .WithMany("Assignments")
+                        .HasForeignKey("ClasseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SchoolSchedule.Domain.Departement", "Departement")
+                        .WithMany("Assignments")
+                        .HasForeignKey("DepartementId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SchoolSchedule.Domain.Subject", "Subject")
+                        .WithMany("Assignments")
+                        .HasForeignKey("SubjectId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("Classe");
+
+                    b.Navigation("Departement");
+
+                    b.Navigation("Subject");
+                });
+
             modelBuilder.Entity("SchoolSchedule.Domain.UserRole", b =>
                 {
                     b.HasOne("SchoolSchedule.Domain.Role", "Role")
@@ -176,12 +275,24 @@ namespace SchoolSchedule.Infrastructure.Migrations
 
             modelBuilder.Entity("SchoolSchedule.Domain.Classe", b =>
                 {
+                    b.Navigation("Assignments");
+
                     b.Navigation("Departements");
+                });
+
+            modelBuilder.Entity("SchoolSchedule.Domain.Departement", b =>
+                {
+                    b.Navigation("Assignments");
                 });
 
             modelBuilder.Entity("SchoolSchedule.Domain.Role", b =>
                 {
                     b.Navigation("UserRoles");
+                });
+
+            modelBuilder.Entity("SchoolSchedule.Domain.Subject", b =>
+                {
+                    b.Navigation("Assignments");
                 });
 
             modelBuilder.Entity("SchoolSchedule.Domain.User", b =>

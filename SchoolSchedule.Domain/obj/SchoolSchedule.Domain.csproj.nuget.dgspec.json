@@ -73,6 +73,10 @@
               "target": "Package",
               "version": "[9.0.9, )"
             },
+            "Scrutor": {
+              "target": "Package",
+              "version": "[6.1.0, )"
+            },
             "Swashbuckle.AspNetCore.SwaggerGen": {
               "target": "Package",
               "version": "[6.6.2, )"

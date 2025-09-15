@@ -177,3 +177,8 @@ C:\Users\hussi\source\repos\SchoolSchedule\SchoolSchedule.Api\bin\Debug\net8.0\t
 C:\Users\hussi\source\repos\SchoolSchedule\SchoolSchedule.Api\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 C:\Users\hussi\source\repos\SchoolSchedule\SchoolSchedule.Api\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 C:\Users\hussi\source\repos\SchoolSchedule\SchoolSchedule.Api\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\hussi\source\repos\SchoolSchedule\SchoolSchedule.Api\obj\Debug\net8.0\SchoolSchedule.Api.sourcelink.json
+C:\Users\hussi\source\repos\SchoolSchedule\SchoolSchedule.Api\bin\Debug\net8.0\BCrypt.Net-Next.dll
+C:\Users\hussi\source\repos\SchoolSchedule\SchoolSchedule.Api\bin\Debug\net8.0\ErrorOr.dll
+C:\Users\hussi\source\repos\SchoolSchedule\SchoolSchedule.Api\bin\Debug\net8.0\BouncyCastle.Crypto.dll
+C:\Users\hussi\source\repos\SchoolSchedule\SchoolSchedule.Api\bin\Debug\net8.0\Scrutor.dll

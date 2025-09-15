@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using SchoolSchedule.Domain;
 
-namespace SchoolSchedule.Infrastructure.Departements
+namespace SchoolSchedule.Infrastructure.Departements.Persistence
 {
     internal class DepartmentConfiguration : IEntityTypeConfiguration<Departement>
     {
@@ -16,6 +16,13 @@ namespace SchoolSchedule.Infrastructure.Departements
             builder.Property(d => d.DepartementName)
                 .IsRequired()
                 .HasMaxLength(50);
+
+            builder.Property(d => d.DepartementGuid)
+                .HasDefaultValueSql("NEWID()");
+
+            builder.HasMany(d => d.Assignments)
+               .WithOne(a => a.Departement)
+               .HasForeignKey(a => a.DepartementId);
 
             builder.HasOne(d => d.Classe)
                 .WithMany(d => d.Departements)

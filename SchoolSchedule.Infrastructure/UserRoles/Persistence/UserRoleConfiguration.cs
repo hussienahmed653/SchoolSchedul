@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using SchoolSchedule.Domain;
 
-namespace SchoolSchedule.Infrastructure.UserRoles
+namespace SchoolSchedule.Infrastructure.UserRoles.Persistence
 {
     internal class UserRoleConfiguration : IEntityTypeConfiguration<UserRole>
     {

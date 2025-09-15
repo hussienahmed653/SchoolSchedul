@@ -12,3 +12,4 @@ C:\Users\hussi\source\repos\SchoolSchedule\SchoolSchedule.Domain\obj\Debug\net8.
 C:\Users\hussi\source\repos\SchoolSchedule\SchoolSchedule.Domain\bin\Debug\net8.0\SchoolSchedule.Domain.runtimeconfig.json
 C:\Users\hussi\source\repos\SchoolSchedule\SchoolSchedule.Domain\obj\Debug\net8.0\SchoolSchedule.Domain.csproj.AssemblyReference.cache
 C:\Users\hussi\source\repos\SchoolSchedule\SchoolSchedule.Domain\obj\Debug\net8.0\SchoolSchedule.Domain.genruntimeconfig.cache
+C:\Users\hussi\source\repos\SchoolSchedule\SchoolSchedule.Domain\obj\Debug\net8.0\SchoolSchedule.Domain.sourcelink.json

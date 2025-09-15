@@ -17,3 +17,4 @@ C:\Users\hussi\source\repos\SchoolSchedule\SchoolSchedule.Infrastructure\obj\Deb
 C:\Users\hussi\source\repos\SchoolSchedule\SchoolSchedule.Infrastructure\obj\Debug\net8.0\ref\SchoolSchedule.Infrastructure.dll
 C:\Users\hussi\source\repos\SchoolSchedule\SchoolSchedule.Infrastructure\bin\Debug\net8.0\SchoolSchedule.Infrastructure.runtimeconfig.json
 C:\Users\hussi\source\repos\SchoolSchedule\SchoolSchedule.Infrastructure\obj\Debug\net8.0\SchoolSchedule.Infrastructure.genruntimeconfig.cache
+C:\Users\hussi\source\repos\SchoolSchedule\SchoolSchedule.Infrastructure\obj\Debug\net8.0\SchoolSchedule.Infrastructure.sourcelink.json

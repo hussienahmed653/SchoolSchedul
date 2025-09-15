@@ -15,3 +15,4 @@ C:\Users\hussi\source\repos\SchoolSchedule\SchoolSchedule.Application\obj\Debug\
 C:\Users\hussi\source\repos\SchoolSchedule\SchoolSchedule.Application\obj\Debug\net8.0\ref\SchoolSchedule.Application.dll
 C:\Users\hussi\source\repos\SchoolSchedule\SchoolSchedule.Application\bin\Debug\net8.0\SchoolSchedule.Application.runtimeconfig.json
 C:\Users\hussi\source\repos\SchoolSchedule\SchoolSchedule.Application\obj\Debug\net8.0\SchoolSchedule.Application.genruntimeconfig.cache
+C:\Users\hussi\source\repos\SchoolSchedule\SchoolSchedule.Application\obj\Debug\net8.0\SchoolSchedule.Application.sourcelink.json

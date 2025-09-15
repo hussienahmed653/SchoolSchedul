@@ -1,3 +1,4 @@
+using SchoolSchedule.Application;
 using SchoolSchedule.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,7 +10,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 //builder.Services.AddSwaggerGen();
 
-builder.Services.AddInfrastructure(builder.Configuration);
+builder.Services.AddInfrastructure(builder.Configuration)
+    .AddApplication();
 
 var app = builder.Build();
 
