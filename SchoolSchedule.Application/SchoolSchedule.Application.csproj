@@ -23,4 +23,9 @@
     <ProjectReference Include="..\SchoolSchedule.Domain\SchoolSchedule.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Clasees\Command\" />
+    <Folder Include="SubjectAssignments\Query\" />
+  </ItemGroup>
+
 </Project>

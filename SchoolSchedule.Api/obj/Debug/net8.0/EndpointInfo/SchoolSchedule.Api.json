@@ -6,10 +6,29 @@
   },
   "paths": {
     "/api/Test/Test": {
-      "get": {
+      "post": {
         "tags": [
           "Test"
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/createSubjectAssignmentDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/createSubjectAssignmentDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/createSubjectAssignmentDto"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "OK"
@@ -19,6 +38,41 @@
     }
   },
   "components": {
+    "schemas": {
+      "Key": {
+        "enum": [
+          1,
+          2
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "createSubjectAssignmentDto": {
+        "type": "object",
+        "properties": {
+          "subjectId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "classeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "departementId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "evenOrOdd": {
+            "$ref": "#/components/schemas/Key"
+          },
+          "amount": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
     "securitySchemes": {
       "Bearer": {
         "type": "http",

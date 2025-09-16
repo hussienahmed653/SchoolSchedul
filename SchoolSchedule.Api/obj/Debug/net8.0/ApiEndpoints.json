@@ -3,10 +3,16 @@
     "ContainingType": "SchoolSchedule.Api.Controller.TestController",
     "Method": "Get",
     "RelativePath": "api/Test/Test",
-    "HttpMethod": "GET",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "createSubjectAssignmentDto",
+        "Type": "SchoolSchedule.Application.DTOs.createSubjectAssignmentDto",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   }
 ]

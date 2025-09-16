@@ -1,6 +1,10 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SchoolSchedule.Application.Clasees.Query;
+using SchoolSchedule.Application.Common.Interfaces.MediatorInterfaces;
+using SchoolSchedule.Application.DTOs;
+using SchoolSchedule.Application.SubjectAssignments.Command.CreateSubjectAssignment;
 
 namespace SchoolSchedule.Api.Controller
 {
@@ -8,11 +12,18 @@ namespace SchoolSchedule.Api.Controller
     [ApiController]
     public class TestController : ControllerBase
     {
-        [Authorize]
-        [HttpGet("Test")]
-        public IActionResult Get()
+        IMediator _mediator;
+
+        public TestController(IMediator mediator)
         {
-            return Ok("API is working");
+            _mediator = mediator;
+        }
+
+        [HttpPost("Test")]
+        public async Task<IActionResult> Get(createSubjectAssignmentDto createSubjectAssignmentDto)
+        {
+            var result = await _mediator.Send(new CreateSubjectAssignmentCommand(createSubjectAssignmentDto));
+            return Ok(result.Value);
         }
     }
 }

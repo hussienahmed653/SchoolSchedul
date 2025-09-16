@@ -4,8 +4,12 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using SchoolSchedule.Application.Common.Interfaces;
 using SchoolSchedule.Infrastructure.Authentication.TokenGenerator;
+using SchoolSchedule.Infrastructure.Classes.Persistence;
 using SchoolSchedule.Infrastructure.DbConext;
+using SchoolSchedule.Infrastructure.SubjectAssignments.Persistence;
+using SchoolSchedule.Infrastructure.UniteOfWork;
 using System.Text;
 
 namespace SchoolSchedule.Infrastructure
@@ -17,6 +21,10 @@ namespace SchoolSchedule.Infrastructure
             var connectionString = configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<ApplicationDbContext>(option =>
                                                                 option.UseSqlServer(connectionString));
+
+            services.AddScoped<IUniteOfWork, UniteOfWorkRepository>();
+            services.AddScoped<IClasseRepository, ClassRepository>();
+            services.AddScoped<ISubjectAssignmentRepository, SubjectAssignmentRepository>();
             services.AddAuthenticationDI(configuration)
                 .AddAuthenticationToSwagger();
             return services;
