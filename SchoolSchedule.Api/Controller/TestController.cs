@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SchoolSchedule.Application.Clasees.Query;
+using SchoolSchedule.Application.ClassSections.Querys.GetClassSections;
 using SchoolSchedule.Application.Common.Interfaces.MediatorInterfaces;
 using SchoolSchedule.Application.Departements.Query.GetDepartement;
 using SchoolSchedule.Application.DTOs;
@@ -40,6 +41,12 @@ namespace SchoolSchedule.Api.Controller
         public async Task<IActionResult> GetAlldepartment()
         {
             var result = await _mediator.Send(new GetDepartementQuery(null));
+            return ProblemOr(result);
+        }
+        [HttpGet("Test5")]
+        public async Task<IActionResult> GetClassSection(int? id = null)
+        {
+            var result = await _mediator.Send(new GetClassSectionQuery(id));
             return ProblemOr(result);
         }
     }

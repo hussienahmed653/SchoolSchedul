@@ -22,6 +22,7 @@ namespace SchoolSchedule.Infrastructure.DbConext
         public DbSet<SchoolWeek> SchoolWeeks { get; set; }
         public DbSet<Subject> Subjects { get; set; }
         public DbSet<SubjectAssignment> SubjectAssignments { get; set; }
+        public DbSet<ClassSection> ClassSection { get; set; }
         
     }
 }

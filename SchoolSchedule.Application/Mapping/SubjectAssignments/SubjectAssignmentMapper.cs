@@ -12,6 +12,7 @@ namespace SchoolSchedule.Application.Mapping.SubjectAssignments
                 SubjectId = dto.SubjectId,
                 GradeId = dto.GradeId,
                 DepartementId = dto.DepartementId,
+                ClassSectionId = dto.ClassSectionId,
                 EvenOrOdd = dto.EvenOrOdd,
                 Amount = dto.Amount,
             };

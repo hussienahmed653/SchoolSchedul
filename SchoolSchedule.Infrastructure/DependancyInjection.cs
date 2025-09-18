@@ -7,6 +7,7 @@ using Microsoft.OpenApi.Models;
 using SchoolSchedule.Application.Common.Interfaces;
 using SchoolSchedule.Infrastructure.Authentication.TokenGenerator;
 using SchoolSchedule.Infrastructure.Classes.Persistence;
+using SchoolSchedule.Infrastructure.ClassSections.Persistence;
 using SchoolSchedule.Infrastructure.DbConext;
 using SchoolSchedule.Infrastructure.Departements.Persistence;
 using SchoolSchedule.Infrastructure.SubjectAssignments.Persistence;
@@ -27,6 +28,7 @@ namespace SchoolSchedule.Infrastructure
             services.AddScoped<IGradeRepository, GradeRepository>();
             services.AddScoped<ISubjectAssignmentRepository, SubjectAssignmentRepository>();
             services.AddScoped<IDepartementRepository, DepartementRepository>();
+            services.AddScoped<IClassSectionRepository, ClassSectionRepository>();
             services.AddAuthenticationDI(configuration)
                 .AddAuthenticationToSwagger();
             return services;

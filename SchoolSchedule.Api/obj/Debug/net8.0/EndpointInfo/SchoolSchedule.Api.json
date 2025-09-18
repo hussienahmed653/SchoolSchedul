@@ -81,6 +81,28 @@
           }
         }
       }
+    },
+    "/api/Test/Test5": {
+      "get": {
+        "tags": [
+          "Test"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -105,6 +127,10 @@
             "format": "int32"
           },
           "departementId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "classSectionId": {
             "type": "integer",
             "format": "int32"
           },
