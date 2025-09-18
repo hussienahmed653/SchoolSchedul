@@ -24,9 +24,9 @@ namespace SchoolSchedule.Infrastructure.Departements.Persistence
                .WithOne(a => a.Departement)
                .HasForeignKey(a => a.DepartementId);
 
-            builder.HasOne(d => d.Classe)
+            builder.HasOne(d => d.Grade)
                 .WithMany(d => d.Departements)
-                .HasForeignKey(d => d.ClasseId)
+                .HasForeignKey(d => d.GradeId)
                 .OnDelete(DeleteBehavior.NoAction);
         }
     }

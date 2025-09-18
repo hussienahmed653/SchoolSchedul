@@ -8,6 +8,7 @@ using SchoolSchedule.Application.Common.Interfaces;
 using SchoolSchedule.Infrastructure.Authentication.TokenGenerator;
 using SchoolSchedule.Infrastructure.Classes.Persistence;
 using SchoolSchedule.Infrastructure.DbConext;
+using SchoolSchedule.Infrastructure.Departements.Persistence;
 using SchoolSchedule.Infrastructure.SubjectAssignments.Persistence;
 using SchoolSchedule.Infrastructure.UniteOfWork;
 using System.Text;
@@ -23,8 +24,9 @@ namespace SchoolSchedule.Infrastructure
                                                                 option.UseSqlServer(connectionString));
 
             services.AddScoped<IUniteOfWork, UniteOfWorkRepository>();
-            services.AddScoped<IClasseRepository, ClassRepository>();
+            services.AddScoped<IGradeRepository, GradeRepository>();
             services.AddScoped<ISubjectAssignmentRepository, SubjectAssignmentRepository>();
+            services.AddScoped<IDepartementRepository, DepartementRepository>();
             services.AddAuthenticationDI(configuration)
                 .AddAuthenticationToSwagger();
             return services;

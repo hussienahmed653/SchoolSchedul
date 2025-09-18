@@ -17,7 +17,7 @@ namespace SchoolSchedule.Infrastructure.DbConext
         public DbSet<User> Users { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<UserRole> UserRoles { get; set; }
-        public DbSet<Classe> Classes { get; set; }
+        public DbSet<Grade> Grades { get; set; }
         public DbSet<Departement> Departements { get; set; }
         public DbSet<SchoolWeek> SchoolWeeks { get; set; }
         public DbSet<Subject> Subjects { get; set; }

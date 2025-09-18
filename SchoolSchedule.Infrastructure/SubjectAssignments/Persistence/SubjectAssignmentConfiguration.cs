@@ -26,7 +26,7 @@ namespace SchoolSchedule.Infrastructure.SubjectAssignments.Persistence
                 .HasDefaultValueSql("GETDATE()");
 
 
-            builder.HasIndex(sa => new { sa.SubjectId, sa.ClasseId, sa.DepartementId, sa.EvenOrOdd, sa.Amount })
+            builder.HasIndex(sa => new { sa.SubjectId, sa.GradeId, sa.DepartementId, sa.EvenOrOdd, sa.Amount })
                 .IsUnique();
 
             // SubjectAssignment لازم يبقى مربوط بـ Subject, Classe, Departement
@@ -35,13 +35,19 @@ namespace SchoolSchedule.Infrastructure.SubjectAssignments.Persistence
                    .HasForeignKey(sa => sa.SubjectId)
                    .OnDelete(DeleteBehavior.NoAction);
 
-            builder.HasOne(sa => sa.Classe)
+            builder.HasOne(sa => sa.Grade)
                    .WithMany(c => c.Assignments)
-                   .HasForeignKey(sa => sa.ClasseId);
+                   .HasForeignKey(sa => sa.GradeId)
+                   .OnDelete(DeleteBehavior.NoAction);
 
             builder.HasOne(sa => sa.Departement)
                    .WithMany(d => d.Assignments)
-                   .HasForeignKey(sa => sa.DepartementId);
+                   .HasForeignKey(sa => sa.DepartementId)
+                   .OnDelete(DeleteBehavior.NoAction);
+
+            builder.HasOne(sa => sa.ClassSection)
+           .WithMany(cs => cs.Assignments)
+           .HasForeignKey(sa => sa.ClassSectionId);
         }
     }
 }

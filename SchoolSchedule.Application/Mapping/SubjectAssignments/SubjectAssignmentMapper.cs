@@ -10,7 +10,7 @@ namespace SchoolSchedule.Application.Mapping.SubjectAssignments
             return new Domain.SubjectAssignment
             {
                 SubjectId = dto.SubjectId,
-                ClasseId = dto.ClasseId,
+                GradeId = dto.GradeId,
                 DepartementId = dto.DepartementId,
                 EvenOrOdd = dto.EvenOrOdd,
                 Amount = dto.Amount,

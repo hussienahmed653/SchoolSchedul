@@ -4,5 +4,5 @@ using SchoolSchedule.Application.DTOs;
 
 namespace SchoolSchedule.Application.Clasees.Query
 {
-    public record GetClassesQuery(string? classyear) : IRequest<ErrorOr<List<ClassResponseDto>>>;
+    public record GetGradeQuery(string? classyear) : IRequest<ErrorOr<List<GradeResponseDto>>>;
 }

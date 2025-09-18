@@ -1,7 +1,7 @@
 [
   {
     "ContainingType": "SchoolSchedule.Api.Controller.TestController",
-    "Method": "Get",
+    "Method": "add",
     "RelativePath": "api/Test/Test",
     "HttpMethod": "POST",
     "IsController": true,
@@ -13,6 +13,42 @@
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SchoolSchedule.Api.Controller.TestController",
+    "Method": "Getclasses",
+    "RelativePath": "api/Test/Test2",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SchoolSchedule.Api.Controller.TestController",
+    "Method": "Getdepartmentbyclassid",
+    "RelativePath": "api/Test/Test3",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "classid",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SchoolSchedule.Api.Controller.TestController",
+    "Method": "GetAlldepartment",
+    "RelativePath": "api/Test/Test4",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   }
 ]

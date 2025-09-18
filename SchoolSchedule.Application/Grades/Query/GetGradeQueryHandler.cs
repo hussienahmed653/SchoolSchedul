@@ -6,19 +6,19 @@ using SchoolSchedule.Application.Mapping.Classes;
 
 namespace SchoolSchedule.Application.Clasees.Query
 {
-    public class GetClasseQueryHandler : IRequestHandler<GetClassesQuery, ErrorOr<List<ClassResponseDto>>>
+    public class GetGradeQueryHandler : IRequestHandler<GetGradeQuery, ErrorOr<List<GradeResponseDto>>>
     {
         private readonly IUniteOfWork _uniteOfWork;
-        private readonly IClasseRepository _classeRepository;
+        private readonly IGradeRepository _classeRepository;
 
-        public GetClasseQueryHandler(IUniteOfWork uniteOfWork,
-                                     IClasseRepository classeRepository)
+        public GetGradeQueryHandler(IUniteOfWork uniteOfWork,
+                                     IGradeRepository classeRepository)
         {
             _uniteOfWork = uniteOfWork;
             _classeRepository = classeRepository;
         }
 
-        public async Task<ErrorOr<List<ClassResponseDto>>> Handle(GetClassesQuery request)
+        public async Task<ErrorOr<List<GradeResponseDto>>> Handle(GetGradeQuery request)
         {
             try
             {

@@ -22,35 +22,35 @@ namespace SchoolSchedule.Infrastructure.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("SchoolSchedule.Domain.Classe", b =>
+            modelBuilder.Entity("SchoolSchedule.Domain.ClassSection", b =>
                 {
-                    b.Property<int>("ClasseId")
+                    b.Property<int>("ClassSectionId")
                         .HasColumnType("int");
 
-                    b.Property<Guid>("ClasseGuid")
+                    b.Property<Guid>("ClassSectionGuid")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier")
                         .HasDefaultValueSql("NEWID()");
 
-                    b.Property<string>("ClasseYear")
+                    b.Property<int>("GradeId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("SectionName")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int>("NumberOfClasses")
-                        .HasColumnType("int");
+                    b.HasKey("ClassSectionId");
 
-                    b.HasKey("ClasseId");
+                    b.HasIndex("GradeId", "SectionName")
+                        .IsUnique();
 
-                    b.ToTable("Classes");
+                    b.ToTable("ClassSection");
                 });
 
             modelBuilder.Entity("SchoolSchedule.Domain.Departement", b =>
                 {
                     b.Property<int>("DepartementId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ClasseId")
                         .HasColumnType("int");
 
                     b.Property<Guid>("DepartementGuid")
@@ -63,11 +63,37 @@ namespace SchoolSchedule.Infrastructure.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<int>("GradeId")
+                        .HasColumnType("int");
+
                     b.HasKey("DepartementId");
 
-                    b.HasIndex("ClasseId");
+                    b.HasIndex("GradeId");
 
                     b.ToTable("Departements");
+                });
+
+            modelBuilder.Entity("SchoolSchedule.Domain.Grade", b =>
+                {
+                    b.Property<int>("GradeId")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("GradeGuid")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier")
+                        .HasDefaultValueSql("NEWID()");
+
+                    b.Property<string>("GradeYear")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<int>("NumberOfGrades")
+                        .HasColumnType("int");
+
+                    b.HasKey("GradeId");
+
+                    b.ToTable("Grades");
                 });
 
             modelBuilder.Entity("SchoolSchedule.Domain.Role", b =>
@@ -136,7 +162,7 @@ namespace SchoolSchedule.Infrastructure.Migrations
                     b.Property<int>("Amount")
                         .HasColumnType("int");
 
-                    b.Property<int>("ClasseId")
+                    b.Property<int>("ClassSectionId")
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("DeletedOn")
@@ -146,6 +172,9 @@ namespace SchoolSchedule.Infrastructure.Migrations
                         .HasColumnType("int");
 
                     b.Property<int>("EvenOrOdd")
+                        .HasColumnType("int");
+
+                    b.Property<int>("GradeId")
                         .HasColumnType("int");
 
                     b.Property<bool>("IsDeleted")
@@ -161,11 +190,13 @@ namespace SchoolSchedule.Infrastructure.Migrations
 
                     b.HasKey("SubjectAssignmentId");
 
-                    b.HasIndex("ClasseId");
+                    b.HasIndex("ClassSectionId");
 
                     b.HasIndex("DepartementId");
 
-                    b.HasIndex("SubjectId", "ClasseId", "DepartementId", "EvenOrOdd", "Amount")
+                    b.HasIndex("GradeId");
+
+                    b.HasIndex("SubjectId", "GradeId", "DepartementId", "EvenOrOdd", "Amount")
                         .IsUnique();
 
                     b.ToTable("SubjectAssignments");
@@ -216,29 +247,46 @@ namespace SchoolSchedule.Infrastructure.Migrations
                     b.ToTable("UserRoles");
                 });
 
-            modelBuilder.Entity("SchoolSchedule.Domain.Departement", b =>
+            modelBuilder.Entity("SchoolSchedule.Domain.ClassSection", b =>
                 {
-                    b.HasOne("SchoolSchedule.Domain.Classe", "Classe")
-                        .WithMany("Departements")
-                        .HasForeignKey("ClasseId")
+                    b.HasOne("SchoolSchedule.Domain.Grade", "Grade")
+                        .WithMany("ClassSections")
+                        .HasForeignKey("GradeId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
-                    b.Navigation("Classe");
+                    b.Navigation("Grade");
+                });
+
+            modelBuilder.Entity("SchoolSchedule.Domain.Departement", b =>
+                {
+                    b.HasOne("SchoolSchedule.Domain.Grade", "Grade")
+                        .WithMany("Departements")
+                        .HasForeignKey("GradeId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("Grade");
                 });
 
             modelBuilder.Entity("SchoolSchedule.Domain.SubjectAssignment", b =>
                 {
-                    b.HasOne("SchoolSchedule.Domain.Classe", "Classe")
+                    b.HasOne("SchoolSchedule.Domain.ClassSection", "ClassSection")
                         .WithMany("Assignments")
-                        .HasForeignKey("ClasseId")
+                        .HasForeignKey("ClassSectionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("SchoolSchedule.Domain.Departement", "Departement")
                         .WithMany("Assignments")
                         .HasForeignKey("DepartementId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("SchoolSchedule.Domain.Grade", "Grade")
+                        .WithMany("Assignments")
+                        .HasForeignKey("GradeId")
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("SchoolSchedule.Domain.Subject", "Subject")
@@ -247,9 +295,11 @@ namespace SchoolSchedule.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
-                    b.Navigation("Classe");
+                    b.Navigation("ClassSection");
 
                     b.Navigation("Departement");
+
+                    b.Navigation("Grade");
 
                     b.Navigation("Subject");
                 });
@@ -273,16 +323,23 @@ namespace SchoolSchedule.Infrastructure.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("SchoolSchedule.Domain.Classe", b =>
+            modelBuilder.Entity("SchoolSchedule.Domain.ClassSection", b =>
                 {
                     b.Navigation("Assignments");
-
-                    b.Navigation("Departements");
                 });
 
             modelBuilder.Entity("SchoolSchedule.Domain.Departement", b =>
                 {
                     b.Navigation("Assignments");
+                });
+
+            modelBuilder.Entity("SchoolSchedule.Domain.Grade", b =>
+                {
+                    b.Navigation("Assignments");
+
+                    b.Navigation("ClassSections");
+
+                    b.Navigation("Departements");
                 });
 
             modelBuilder.Entity("SchoolSchedule.Domain.Role", b =>

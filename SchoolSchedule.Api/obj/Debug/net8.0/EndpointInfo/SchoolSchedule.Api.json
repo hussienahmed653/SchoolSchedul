@@ -35,6 +35,52 @@
           }
         }
       }
+    },
+    "/api/Test/Test2": {
+      "get": {
+        "tags": [
+          "Test"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Test/Test3": {
+      "get": {
+        "tags": [
+          "Test"
+        ],
+        "parameters": [
+          {
+            "name": "classid",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Test/Test4": {
+      "get": {
+        "tags": [
+          "Test"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -54,7 +100,7 @@
             "type": "integer",
             "format": "int32"
           },
-          "classeId": {
+          "gradeId": {
             "type": "integer",
             "format": "int32"
           },

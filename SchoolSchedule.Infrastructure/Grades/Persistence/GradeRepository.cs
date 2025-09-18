@@ -5,19 +5,18 @@ using SchoolSchedule.Infrastructure.DbConext;
 
 namespace SchoolSchedule.Infrastructure.Classes.Persistence
 {
-    internal class ClassRepository : IClasseRepository
+    internal class GradeRepository : IGradeRepository
     {
         private readonly ApplicationDbContext _context;
 
-        public ClassRepository(ApplicationDbContext context)
+        public GradeRepository(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        public async Task<List<Classe>> GetAllAsync()
+        public async Task<List<Grade>> GetAllAsync()
         {
-            return await _context.Classes
-                                .Include(c => c.Assignments)
+            return await _context.Grades
                                 .ToListAsync();
         }
     }

@@ -2,8 +2,8 @@
 
 namespace SchoolSchedule.Application.Common.Interfaces
 {
-    public interface IClasseRepository
+    public interface IGradeRepository
     {
-        Task<List<Classe>> GetAllAsync();
+        Task<List<Grade>> GetAllAsync();
     }
 }
