@@ -52,6 +52,16 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "SchoolSchedule.Api.Controller.JobTitlesController",
+    "Method": "GetJobTitle",
+    "RelativePath": "api/JobTitles/GetJobTitle",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "SchoolSchedule.Api.Controller.SubjectAssignmentsController",
     "Method": "CreateSubjectAssignment",
     "RelativePath": "api/SubjectAssignments/CreateSubjectAssignment",
@@ -68,17 +78,27 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "SchoolSchedule.Api.Controller.TestController",
-    "Method": "GetClassSection",
-    "RelativePath": "api/Test/Test5",
+    "ContainingType": "SchoolSchedule.Api.Controller.SubjectsController",
+    "Method": "GetAllSubjects",
+    "RelativePath": "api/Subjects/GetAllSubjects",
     "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SchoolSchedule.Api.Controller.TeachersController",
+    "Method": "AddTeacher",
+    "RelativePath": "api/Teachers/AddTeacher",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
-        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
-        "IsRequired": false
+        "Name": "createTeacher",
+        "Type": "SchoolSchedule.Application.DTOs.CreateTeacherDto",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []

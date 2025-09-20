@@ -73,6 +73,18 @@
         }
       }
     },
+    "/api/JobTitles/GetJobTitle": {
+      "get": {
+        "tags": [
+          "JobTitles"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/SubjectAssignments/CreateSubjectAssignment": {
       "post": {
         "tags": [
@@ -104,21 +116,42 @@
         }
       }
     },
-    "/api/Test/Test5": {
+    "/api/Subjects/GetAllSubjects": {
       "get": {
         "tags": [
-          "Test"
+          "Subjects"
         ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Teachers/AddTeacher": {
+      "post": {
+        "tags": [
+          "Teachers"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTeacherDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTeacherDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTeacherDto"
+              }
             }
           }
-        ],
+        },
         "responses": {
           "200": {
             "description": "OK"
@@ -129,7 +162,52 @@
   },
   "components": {
     "schemas": {
+      "CreateTeacherDto": {
+        "type": "object",
+        "properties": {
+          "teacherName": {
+            "type": "string",
+            "nullable": true
+          },
+          "jobTitleId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "birthDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "hireDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "ministryStartDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "schoolStartDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "workType": {
+            "$ref": "#/components/schemas/WorkType"
+          },
+          "workload": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
       "Key": {
+        "enum": [
+          1,
+          2
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "WorkType": {
         "enum": [
           1,
           2

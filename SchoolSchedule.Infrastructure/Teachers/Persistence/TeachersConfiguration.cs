@@ -36,7 +36,7 @@ namespace SchoolSchedule.Infrastructure.Teachers.Persistence
                 .HasDefaultValueSql("GETDATE()");
 
             builder.Property(t => t.IsActive)
-                .HasDefaultValue(1);
+                .HasDefaultValue(true);
 
             builder.Property(t => t.WorkType)
                 .HasConversion<string>()

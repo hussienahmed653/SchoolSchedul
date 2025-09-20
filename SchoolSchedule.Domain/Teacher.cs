@@ -14,7 +14,7 @@
         public WorkType WorkType { get; set; } // كلي / جزئي
         public int Workload { get; set; } // النصاب
         public DateTime AddedOn { get; set; }
-        public bool IsActive { get; set; }
+        public bool IsActive { get; set; } = true;
 
     }
 

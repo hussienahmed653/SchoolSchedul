@@ -10,7 +10,10 @@ using SchoolSchedule.Infrastructure.Classes.Persistence;
 using SchoolSchedule.Infrastructure.ClassSections.Persistence;
 using SchoolSchedule.Infrastructure.DbConext;
 using SchoolSchedule.Infrastructure.Departements.Persistence;
+using SchoolSchedule.Infrastructure.JopTitles.Persistence;
 using SchoolSchedule.Infrastructure.SubjectAssignments.Persistence;
+using SchoolSchedule.Infrastructure.Subjects.Persistence;
+using SchoolSchedule.Infrastructure.Teachers.Persistence;
 using SchoolSchedule.Infrastructure.UniteOfWork;
 using System.Text;
 
@@ -29,6 +32,9 @@ namespace SchoolSchedule.Infrastructure
             services.AddScoped<ISubjectAssignmentRepository, SubjectAssignmentRepository>();
             services.AddScoped<IDepartementRepository, DepartementRepository>();
             services.AddScoped<IClassSectionRepository, ClassSectionRepository>();
+            services.AddScoped<IJobTitleRepository, JobTitleRepository>();
+            services.AddScoped<ITeacherRepository, TeacherRepository>();
+            services.AddScoped<ISubjectRepository, SubjectRepository>();
             services.AddAuthenticationDI(configuration)
                 .AddAuthenticationToSwagger();
             return services;
