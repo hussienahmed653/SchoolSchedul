@@ -5,6 +5,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using SchoolSchedule.Application.Common.Interfaces;
+using SchoolSchedule.Domain.Common.Interfaces;
+using SchoolSchedule.Infrastructure.Authentication.PasswordHasher;
 using SchoolSchedule.Infrastructure.Authentication.TokenGenerator;
 using SchoolSchedule.Infrastructure.Classes.Persistence;
 using SchoolSchedule.Infrastructure.ClassSections.Persistence;
@@ -15,6 +17,7 @@ using SchoolSchedule.Infrastructure.SubjectAssignments.Persistence;
 using SchoolSchedule.Infrastructure.Subjects.Persistence;
 using SchoolSchedule.Infrastructure.Teachers.Persistence;
 using SchoolSchedule.Infrastructure.UniteOfWork;
+using SchoolSchedule.Infrastructure.Users.Persistence;
 using System.Text;
 
 namespace SchoolSchedule.Infrastructure
@@ -35,6 +38,9 @@ namespace SchoolSchedule.Infrastructure
             services.AddScoped<IJobTitleRepository, JobTitleRepository>();
             services.AddScoped<ITeacherRepository, TeacherRepository>();
             services.AddScoped<ISubjectRepository, SubjectRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IPasswordHasher, PasswordHasher>();
+            services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
             services.AddAuthenticationDI(configuration)
                 .AddAuthenticationToSwagger();
             return services;
@@ -47,7 +53,11 @@ namespace SchoolSchedule.Infrastructure
             services.Configure<JwtSetting>(configuration.GetSection(JwtSetting.Jwt));
 
 
-            services.AddAuthentication(defaultScheme: JwtBearerDefaults.AuthenticationScheme)
+            services.AddAuthentication(option =>
+            {
+                option.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                option.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
                 .AddJwtBearer(option =>
                 {
                     option.TokenValidationParameters = new TokenValidationParameters
@@ -55,6 +65,7 @@ namespace SchoolSchedule.Infrastructure
                         ValidateIssuer = true,
                         ValidateAudience = true,
                         ValidateLifetime = true,
+                        ValidateIssuerSigningKey = true,
                         ValidIssuer = jwtsetting.Issuer,
                         ValidAudience = jwtsetting.Audience,
                         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtsetting.Key)),

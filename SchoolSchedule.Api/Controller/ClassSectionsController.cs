@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SchoolSchedule.Application.ClassSections.Querys.GetClassSections;
 using SchoolSchedule.Application.Common.Interfaces.MediatorInterfaces;
 
@@ -14,6 +15,7 @@ namespace SchoolSchedule.Api.Controller
         {
             _mediator = mediator;
         }
+        [Authorize]
         [HttpGet("GetClassSection")]
         public async Task<IActionResult> GetClassSection(int? id = null)
         {

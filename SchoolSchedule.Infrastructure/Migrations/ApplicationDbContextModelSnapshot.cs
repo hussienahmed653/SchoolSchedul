@@ -45,7 +45,7 @@ namespace SchoolSchedule.Infrastructure.Migrations
                     b.HasIndex("GradeId", "SectionName")
                         .IsUnique();
 
-                    b.ToTable("ClassSection", (string)null);
+                    b.ToTable("ClassSection");
                 });
 
             modelBuilder.Entity("SchoolSchedule.Domain.Departement", b =>
@@ -70,7 +70,7 @@ namespace SchoolSchedule.Infrastructure.Migrations
 
                     b.HasIndex("GradeId");
 
-                    b.ToTable("Departements", (string)null);
+                    b.ToTable("Departements");
                 });
 
             modelBuilder.Entity("SchoolSchedule.Domain.Grade", b =>
@@ -93,7 +93,7 @@ namespace SchoolSchedule.Infrastructure.Migrations
 
                     b.HasKey("GradeId");
 
-                    b.ToTable("Grades", (string)null);
+                    b.ToTable("Grades");
                 });
 
             modelBuilder.Entity("SchoolSchedule.Domain.JobTitle", b =>
@@ -113,7 +113,7 @@ namespace SchoolSchedule.Infrastructure.Migrations
 
                     b.HasKey("JobTitleId");
 
-                    b.ToTable("JobTitles", (string)null);
+                    b.ToTable("JobTitles");
                 });
 
             modelBuilder.Entity("SchoolSchedule.Domain.Role", b =>
@@ -128,7 +128,7 @@ namespace SchoolSchedule.Infrastructure.Migrations
 
                     b.HasKey("RoleId");
 
-                    b.ToTable("Roles", (string)null);
+                    b.ToTable("Roles");
                 });
 
             modelBuilder.Entity("SchoolSchedule.Domain.SchoolWeek", b =>
@@ -146,7 +146,7 @@ namespace SchoolSchedule.Infrastructure.Migrations
 
                     b.HasKey("SchoolWeekId");
 
-                    b.ToTable("SchoolWeeks", (string)null);
+                    b.ToTable("SchoolWeeks");
                 });
 
             modelBuilder.Entity("SchoolSchedule.Domain.Subject", b =>
@@ -166,7 +166,7 @@ namespace SchoolSchedule.Infrastructure.Migrations
 
                     b.HasKey("SubjectId");
 
-                    b.ToTable("Subjects", (string)null);
+                    b.ToTable("Subjects");
                 });
 
             modelBuilder.Entity("SchoolSchedule.Domain.SubjectAssignment", b =>
@@ -219,7 +219,7 @@ namespace SchoolSchedule.Infrastructure.Migrations
                     b.HasIndex("SubjectId", "GradeId", "DepartementId", "EvenOrOdd", "Amount")
                         .IsUnique();
 
-                    b.ToTable("SubjectAssignments", (string)null);
+                    b.ToTable("SubjectAssignments");
                 });
 
             modelBuilder.Entity("SchoolSchedule.Domain.Teacher", b =>
@@ -282,7 +282,7 @@ namespace SchoolSchedule.Infrastructure.Migrations
 
                     b.HasIndex("JobTitleId");
 
-                    b.ToTable("Teachers", null, t =>
+                    b.ToTable("Teachers", t =>
                         {
                             t.HasCheckConstraint("CHECK_IF_WORKTYPE_IS_FULLTIME_OR_PARTTIME", "[WorkType] IN (N'كلي',N'جزئي')");
                         });
@@ -303,7 +303,9 @@ namespace SchoolSchedule.Infrastructure.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("UserGuid")
-                        .HasColumnType("uniqueidentifier");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier")
+                        .HasDefaultValueSql("NEWID()");
 
                     b.Property<string>("UserName")
                         .IsRequired()
@@ -315,7 +317,7 @@ namespace SchoolSchedule.Infrastructure.Migrations
                     b.HasIndex("Email")
                         .IsUnique();
 
-                    b.ToTable("Users", (string)null);
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("SchoolSchedule.Domain.UserRole", b =>
@@ -330,7 +332,7 @@ namespace SchoolSchedule.Infrastructure.Migrations
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("UserRoles", (string)null);
+                    b.ToTable("UserRoles");
                 });
 
             modelBuilder.Entity("SchoolSchedule.Domain.ClassSection", b =>

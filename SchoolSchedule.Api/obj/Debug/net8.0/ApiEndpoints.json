@@ -1,5 +1,37 @@
 [
   {
+    "ContainingType": "SchoolSchedule.Api.Controller.AuthenticationsController",
+    "Method": "Login",
+    "RelativePath": "api/Authentications/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "loginRequest",
+        "Type": "SchoolSchedule.Application.DTOs.Authentications.LoginRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SchoolSchedule.Api.Controller.AuthenticationsController",
+    "Method": "Register",
+    "RelativePath": "api/Authentications/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "registerRequest",
+        "Type": "SchoolSchedule.Application.DTOs.Authentications.RegisterRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "SchoolSchedule.Api.Controller.ClassSectionsController",
     "Method": "GetClassSection",
     "RelativePath": "api/ClassSections/GetClassSection",

@@ -10,6 +10,9 @@ namespace SchoolSchedule.Infrastructure.Users.Persistence
         {
             builder.HasKey(u => u.UserId);
 
+            builder.Property(u => u.UserGuid)
+                .HasDefaultValueSql("NEWID()");
+
             builder.Property(u => u.UserId)
                 .ValueGeneratedNever();
 

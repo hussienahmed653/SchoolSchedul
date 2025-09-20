@@ -28,13 +28,14 @@ namespace SchoolSchedule.Infrastructure.Authentication.TokenGenerator
                 new Claim(ClaimTypes.Name, user.UserName),
                 new Claim(ClaimTypes.Email, user.Email),
             };
-            claims.AddRange(user.UserRoles.Select(ur => new Claim(ClaimTypes.Role, ur.Role.RoleId.ToString())));
+            claims.AddRange(user.UserRoles.Select(ur => new Claim(ClaimTypes.Role, ur.Role.RoleName)));
 
             var toke = new JwtSecurityToken
             (
                 issuer: _jwtSetting.Issuer,
                 audience: _jwtSetting.Audience,
                 claims: claims,
+                expires: DateTime.UtcNow.AddHours(1),
                 signingCredentials: credentials
             );
             return new JwtSecurityTokenHandler().WriteToken(toke);
