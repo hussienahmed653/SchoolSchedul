@@ -5,10 +5,78 @@
     "description": "API for SchoolSchedule Application"
   },
   "paths": {
-    "/api/Test/Test": {
+    "/api/ClassSections/GetClassSection": {
+      "get": {
+        "tags": [
+          "ClassSections"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Departements/GetAlldepartment": {
+      "get": {
+        "tags": [
+          "Departements"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Departements/Getdepartmentbyclassid": {
+      "get": {
+        "tags": [
+          "Departements"
+        ],
+        "parameters": [
+          {
+            "name": "classid",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Grades/GetAllGrades": {
+      "get": {
+        "tags": [
+          "Grades"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/SubjectAssignments/CreateSubjectAssignment": {
       "post": {
         "tags": [
-          "Test"
+          "SubjectAssignments"
         ],
         "requestBody": {
           "content": {
@@ -29,52 +97,6 @@
             }
           }
         },
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/Test/Test2": {
-      "get": {
-        "tags": [
-          "Test"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/Test/Test3": {
-      "get": {
-        "tags": [
-          "Test"
-        ],
-        "parameters": [
-          {
-            "name": "classid",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/Test/Test4": {
-      "get": {
-        "tags": [
-          "Test"
-        ],
         "responses": {
           "200": {
             "description": "OK"

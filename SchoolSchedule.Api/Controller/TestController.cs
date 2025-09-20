@@ -18,36 +18,6 @@ namespace SchoolSchedule.Api.Controller
         {
             _mediator = mediator;
         }
-
-        [HttpPost("Test")]
-        public async Task<IActionResult> add(createSubjectAssignmentDto createSubjectAssignmentDto)
-        {
-            var result = await _mediator.Send(new CreateSubjectAssignmentCommand(createSubjectAssignmentDto));
-            return ProblemOr(result);
-        }
-        [HttpGet("Test2")]
-        public async Task<IActionResult> Getclasses()
-        {
-            var result = await _mediator.Send(new GetGradeQuery(null));
-            return ProblemOr(result);
-        }
-        [HttpGet("Test3")]
-        public async Task<IActionResult> Getdepartmentbyclassid(int classid)
-        {
-            var result = await _mediator.Send(new GetDepartementQuery(classid));
-            return ProblemOr(result);
-        }
-        [HttpGet("Test4")]
-        public async Task<IActionResult> GetAlldepartment()
-        {
-            var result = await _mediator.Send(new GetDepartementQuery(null));
-            return ProblemOr(result);
-        }
-        [HttpGet("Test5")]
-        public async Task<IActionResult> GetClassSection(int? id = null)
-        {
-            var result = await _mediator.Send(new GetClassSectionQuery(id));
-            return ProblemOr(result);
-        }
+        
     }
 }

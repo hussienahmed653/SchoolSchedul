@@ -23,6 +23,8 @@ namespace SchoolSchedule.Infrastructure.DbConext
         public DbSet<Subject> Subjects { get; set; }
         public DbSet<SubjectAssignment> SubjectAssignments { get; set; }
         public DbSet<ClassSection> ClassSection { get; set; }
+        public DbSet<JobTitle> JobTitles { get; set; }
+        public DbSet<Teacher> Teachers { get; set; }
         
     }
 }

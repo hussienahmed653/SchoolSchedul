@@ -9,6 +9,7 @@ namespace SchoolSchedule.Application.Mapping.Departements
         {
             return departements.Select(d => new DepartementResponseDto
             {
+                DepartementId = d.DepartementId,
                 DepartementName = d.DepartementName,
             }).ToList();
         }

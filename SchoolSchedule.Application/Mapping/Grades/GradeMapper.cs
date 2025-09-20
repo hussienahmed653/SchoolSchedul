@@ -9,6 +9,7 @@ namespace SchoolSchedule.Application.Mapping.Classes
         {
             return classes.Select(c => new GradeResponseDto
             {
+                GradeId = c.GradeId,
                 GradeYear = c.GradeYear,
                 NumberOfGrades = c.NumberOfGrades,
             }).ToList();

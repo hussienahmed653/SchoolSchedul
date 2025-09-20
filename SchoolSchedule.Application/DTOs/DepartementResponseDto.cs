@@ -2,6 +2,7 @@
 {
     public class DepartementResponseDto
     {
+        public int DepartementId { get; set; }
         public string DepartementName { get; set; }
     }
 }

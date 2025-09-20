@@ -96,6 +96,26 @@ namespace SchoolSchedule.Infrastructure.Migrations
                     b.ToTable("Grades");
                 });
 
+            modelBuilder.Entity("SchoolSchedule.Domain.JobTitle", b =>
+                {
+                    b.Property<int>("JobTitleId")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("JobTitleGuid")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier")
+                        .HasDefaultValueSql("NEWID()");
+
+                    b.Property<string>("JobTitleName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("JobTitleId");
+
+                    b.ToTable("JobTitles");
+                });
+
             modelBuilder.Entity("SchoolSchedule.Domain.Role", b =>
                 {
                     b.Property<int>("RoleId")
@@ -202,6 +222,72 @@ namespace SchoolSchedule.Infrastructure.Migrations
                     b.ToTable("SubjectAssignments");
                 });
 
+            modelBuilder.Entity("SchoolSchedule.Domain.Teacher", b =>
+                {
+                    b.Property<int>("TeacherId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("AddedOn")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<DateTime>("BirthDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<DateTime>("HireDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<bool>("IsActive")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true);
+
+                    b.Property<int>("JobTitleId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("MinistryStartDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<DateTime>("SchoolStartDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<Guid>("TeacherGuid")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier")
+                        .HasDefaultValueSql("NEWID()");
+
+                    b.Property<string>("TeacherName")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<string>("WorkType")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<int>("Workload")
+                        .HasColumnType("int");
+
+                    b.HasKey("TeacherId");
+
+                    b.HasIndex("JobTitleId");
+
+                    b.ToTable("Teachers", t =>
+                        {
+                            t.HasCheckConstraint("CHECK_IF_WORKTYPE_IS_FULLTIME_OR_PARTTIME", "[WorkType] IN (N'كلي',N'جزئي')");
+                        });
+                });
+
             modelBuilder.Entity("SchoolSchedule.Domain.User", b =>
                 {
                     b.Property<int>("UserId")
@@ -304,6 +390,17 @@ namespace SchoolSchedule.Infrastructure.Migrations
                     b.Navigation("Subject");
                 });
 
+            modelBuilder.Entity("SchoolSchedule.Domain.Teacher", b =>
+                {
+                    b.HasOne("SchoolSchedule.Domain.JobTitle", "JobTitle")
+                        .WithMany("Teachers")
+                        .HasForeignKey("JobTitleId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("JobTitle");
+                });
+
             modelBuilder.Entity("SchoolSchedule.Domain.UserRole", b =>
                 {
                     b.HasOne("SchoolSchedule.Domain.Role", "Role")
@@ -340,6 +437,11 @@ namespace SchoolSchedule.Infrastructure.Migrations
                     b.Navigation("ClassSections");
 
                     b.Navigation("Departements");
+                });
+
+            modelBuilder.Entity("SchoolSchedule.Domain.JobTitle", b =>
+                {
+                    b.Navigation("Teachers");
                 });
 
             modelBuilder.Entity("SchoolSchedule.Domain.Role", b =>

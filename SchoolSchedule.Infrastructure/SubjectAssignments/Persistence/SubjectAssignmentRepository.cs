@@ -16,7 +16,7 @@ namespace SchoolSchedule.Infrastructure.SubjectAssignments.Persistence
 
         public async Task AddAsync(SubjectAssignment subjectAssignment)
         {
-            subjectAssignment.SubjectAssignmentId = (await _context.SubjectAssignments.AnyAsync() ? (await _context.SubjectAssignments.MaxAsync(s => s.SubjectAssignmentId) + 1) : 0);
+            subjectAssignment.SubjectAssignmentId = (await _context.SubjectAssignments.AnyAsync() ? (await _context.SubjectAssignments.MaxAsync(s => s.SubjectAssignmentId) + 1) : 1);
             await _context.AddAsync(subjectAssignment);
             await _context.SaveChangesAsync();
         }

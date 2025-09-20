@@ -24,7 +24,7 @@ namespace SchoolSchedule.Application.ClassSections.Querys.GetClassSections
             {
                 await _uniteOfWork.BegingTransactionAsync();
                 var data = await _classSectionRepository.GetClassSectionsAsync(request.gradeid);
-                if (data == null)
+                if (data.Count is 0)
                     return Error.NotFound("Not Found", "Data Not Dound");
                 var datamapper = data.MappDataToGetClassSectionResponse();
                 return datamapper;

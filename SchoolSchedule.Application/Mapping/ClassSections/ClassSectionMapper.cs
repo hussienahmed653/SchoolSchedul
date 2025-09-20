@@ -9,6 +9,7 @@ namespace SchoolSchedule.Application.Mapping.ClassSections
         {
             return classSections.Select(cs => new GetClassSectionResponseDto
             {
+                GradeId = cs.GradeId,
                 SectionName = cs.SectionName,
             }).ToList();
         }
