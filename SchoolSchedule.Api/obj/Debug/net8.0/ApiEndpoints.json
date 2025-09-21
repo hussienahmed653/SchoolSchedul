@@ -33,6 +33,22 @@
   },
   {
     "ContainingType": "SchoolSchedule.Api.Controller.ClassSectionsController",
+    "Method": "AddClassSection",
+    "RelativePath": "api/ClassSections/AddClassSection",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "createClassSection",
+        "Type": "SchoolSchedule.Application.DTOs.CreateClassSectionDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SchoolSchedule.Api.Controller.ClassSectionsController",
     "Method": "GetClassSection",
     "RelativePath": "api/ClassSections/GetClassSection",
     "HttpMethod": "GET",
@@ -43,6 +59,22 @@
         "Name": "id",
         "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SchoolSchedule.Api.Controller.ClassSectionsController",
+    "Method": "RemoveClassSection",
+    "RelativePath": "api/ClassSections/RemoveClassSection",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "createClassSection",
+        "Type": "SchoolSchedule.Application.DTOs.CreateClassSectionDto",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -111,12 +143,44 @@
   },
   {
     "ContainingType": "SchoolSchedule.Api.Controller.SubjectsController",
+    "Method": "AddSubject",
+    "RelativePath": "api/Subjects/AddSubject",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "SubjectName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SchoolSchedule.Api.Controller.SubjectsController",
     "Method": "GetAllSubjects",
     "RelativePath": "api/Subjects/GetAllSubjects",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SchoolSchedule.Api.Controller.SubjectsController",
+    "Method": "RemoceSubject",
+    "RelativePath": "api/Subjects/RemoveSubject",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "SubjectName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": []
   },
   {
@@ -131,6 +195,22 @@
         "Name": "createTeacher",
         "Type": "SchoolSchedule.Application.DTOs.CreateTeacherDto",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SchoolSchedule.Api.Controller.TeachersController",
+    "Method": "GetTeachers",
+    "RelativePath": "api/Teachers/GetTeachers",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "teachername",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

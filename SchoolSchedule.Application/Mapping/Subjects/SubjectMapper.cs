@@ -13,5 +13,13 @@ namespace SchoolSchedule.Application.Mapping.Subjects
                 SubjectName = subject.SubjectName
             }).ToList();
         }
+
+        public static Subject MapToSubject(this string subjectname)
+        {
+            return new Subject
+            {
+                SubjectName = subjectname,
+            };
+        }
     }
 }

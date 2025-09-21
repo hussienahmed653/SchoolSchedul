@@ -5,7 +5,7 @@ namespace SchoolSchedule.Application.Mapping.Classes
 {
     public static class GradeMapper
     {
-        public static List<GradeResponseDto> MappToClassResponse(this List<Grade> classes)
+        public static List<GradeResponseDto> MappToGradeResponse(this List<Grade> classes)
         {
             return classes.Select(c => new GradeResponseDto
             {

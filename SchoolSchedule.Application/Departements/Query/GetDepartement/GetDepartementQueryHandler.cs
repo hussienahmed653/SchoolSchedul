@@ -22,7 +22,7 @@ namespace SchoolSchedule.Application.Departements.Query.GetDepartement
         {
             try
             {
-                await _uniteOfWork.BegingTransactionAsync();
+                await _uniteOfWork.BeginTransactionAsync();
                 if(request.id is not null)
                 {
                     var databyid = await _departementRepository.GetByIdAsync(request.id.Value);

@@ -24,13 +24,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ClassSections\Commands\" />
     <Folder Include="Grades\Command\" />
     <Folder Include="Departements\Command\" />
     <Folder Include="JobTitles\Command\" />
     <Folder Include="SubjectAssignments\Query\" />
-    <Folder Include="Subjects\Command\" />
-    <Folder Include="Teachers\Query\" />
   </ItemGroup>
 
 </Project>

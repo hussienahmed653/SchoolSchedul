@@ -13,5 +13,13 @@ namespace SchoolSchedule.Application.Mapping.ClassSections
                 SectionName = cs.SectionName,
             }).ToList();
         }
+        public static ClassSection MapToClassSection(this CreateClassSectionDto createClassSection)
+        {
+            return new ClassSection
+            {
+                GradeId= createClassSection.GradeId,
+                SectionName = createClassSection.ClassSectionName
+            };
+        }
     }
 }

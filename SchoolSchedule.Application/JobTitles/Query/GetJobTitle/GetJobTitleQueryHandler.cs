@@ -22,7 +22,7 @@ namespace SchoolSchedule.Application.JobTitles.Query.GetJobTitle
         {
             try
             {
-                await _uniteOfWork.BegingTransactionAsync();
+                await _uniteOfWork.BeginTransactionAsync();
                 var jobtitles = await _jobTitleRepository.GetAllAsync();
 
                 if(jobtitles.Count is 0)

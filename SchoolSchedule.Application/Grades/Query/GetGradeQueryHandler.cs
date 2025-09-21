@@ -22,13 +22,13 @@ namespace SchoolSchedule.Application.Clasees.Query
         {
             try
             {
-                await _uniteOfWork.BegingTransactionAsync();
+                await _uniteOfWork.BeginTransactionAsync();
                 if (request.classyear is null)
                 {
                     var data = await _classeRepository.GetAllAsync();
                     if (data is null)
                         return Error.NotFound(code: "Not Found", description:"Data Not Found");
-                    var response = data.MappToClassResponse();
+                    var response = data.MappToGradeResponse();
                     await _uniteOfWork.CommitAsync();
                     return response;
                 }

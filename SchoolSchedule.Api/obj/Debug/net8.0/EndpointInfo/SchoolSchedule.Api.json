@@ -67,6 +67,37 @@
         }
       }
     },
+    "/api/ClassSections/AddClassSection": {
+      "post": {
+        "tags": [
+          "ClassSections"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateClassSectionDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateClassSectionDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateClassSectionDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/ClassSections/GetClassSection": {
       "get": {
         "tags": [
@@ -82,6 +113,37 @@
             }
           }
         ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ClassSections/RemoveClassSection": {
+      "delete": {
+        "tags": [
+          "ClassSections"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateClassSectionDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateClassSectionDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateClassSectionDto"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "OK"
@@ -178,10 +240,52 @@
         }
       }
     },
+    "/api/Subjects/AddSubject": {
+      "post": {
+        "tags": [
+          "Subjects"
+        ],
+        "parameters": [
+          {
+            "name": "SubjectName",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Subjects/GetAllSubjects": {
       "get": {
         "tags": [
           "Subjects"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Subjects/RemoveSubject": {
+      "delete": {
+        "tags": [
+          "Subjects"
+        ],
+        "parameters": [
+          {
+            "name": "SubjectName",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
         ],
         "responses": {
           "200": {
@@ -220,10 +324,45 @@
           }
         }
       }
+    },
+    "/api/Teachers/GetTeachers": {
+      "get": {
+        "tags": [
+          "Teachers"
+        ],
+        "parameters": [
+          {
+            "name": "teachername",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": {
     "schemas": {
+      "CreateClassSectionDto": {
+        "type": "object",
+        "properties": {
+          "gradeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "classSectionName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "CreateTeacherDto": {
         "type": "object",
         "properties": {

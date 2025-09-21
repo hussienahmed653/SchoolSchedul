@@ -28,7 +28,7 @@ namespace SchoolSchedule.Application.Authentications.Command.Register
         {
             try
             {
-                await _uniteOfWork.BegingTransactionAsync();
+                await _uniteOfWork.BeginTransactionAsync();
                 if(await _userRepository.ExistByEmailAsync(request.registerRequest.Email))
                     return Error.Conflict(description: "Email already exist");
 

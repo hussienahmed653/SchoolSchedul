@@ -21,7 +21,7 @@ namespace SchoolSchedule.Application.SubjectAssignments.Command.CreateSubjectAss
         {
             try
             {
-                await _uniteOfWork.BegingTransactionAsync();
+                await _uniteOfWork.BeginTransactionAsync();
                 var maptosubjectassignment = request.createSubjectAssignmentrequest.MapToSubjectAssignment();
                 await _subjectAssignmentRepository.AddAsync(maptosubjectassignment);
                 await _uniteOfWork.CommitAsync(); 

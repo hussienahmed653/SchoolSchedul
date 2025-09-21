@@ -5,5 +5,6 @@ namespace SchoolSchedule.Application.Common.Interfaces
     public interface ITeacherRepository
     {
         Task AddAsync(Teacher teacher);
+        Task<List<Teacher>> GetAllAsync(string? teachername = null);
     }
 }

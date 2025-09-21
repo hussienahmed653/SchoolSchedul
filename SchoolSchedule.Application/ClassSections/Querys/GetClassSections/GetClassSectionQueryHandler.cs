@@ -22,7 +22,7 @@ namespace SchoolSchedule.Application.ClassSections.Querys.GetClassSections
         {
             try
             {
-                await _uniteOfWork.BegingTransactionAsync();
+                await _uniteOfWork.BeginTransactionAsync();
                 var data = await _classSectionRepository.GetClassSectionsAsync(request.gradeid);
                 if (data.Count is 0)
                     return Error.NotFound("Not Found", "Data Not Dound");

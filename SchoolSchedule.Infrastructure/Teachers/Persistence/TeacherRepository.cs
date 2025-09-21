@@ -20,5 +20,12 @@ namespace SchoolSchedule.Infrastructure.Teachers.Persistence
             await _context.Teachers.AddAsync(teacher);
             await _context.SaveChangesAsync();
         }
+
+        public async Task<List<Teacher>> GetAllAsync(string? teachername = null)
+        {
+            return await _context.Teachers
+                .Where(t => teachername == null || EF.Functions.Like(t.TeacherName.ToLower(), $"%{teachername.ToLower()}%"))
+                .ToListAsync();
+        }
     }
 }

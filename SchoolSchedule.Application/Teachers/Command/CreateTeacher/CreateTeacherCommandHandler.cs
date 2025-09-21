@@ -21,7 +21,7 @@ namespace SchoolSchedule.Application.Teachers.Command.CreateTeacher
         {
             try
             {
-                await _uniteOfWork.BegingTransactionAsync();
+                await _uniteOfWork.BeginTransactionAsync();
                 var data = request.CreateTeacherDto.MapToTeacher();
                 await _teacherRepository.AddAsync(data);
                 await _uniteOfWork.CommitAsync();

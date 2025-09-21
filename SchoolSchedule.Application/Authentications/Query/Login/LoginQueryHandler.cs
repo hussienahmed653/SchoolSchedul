@@ -25,7 +25,7 @@ namespace SchoolSchedule.Application.Authentications.Query.Login
         {
             try
             {
-                await _uniteOfWork.BegingTransactionAsync();
+                await _uniteOfWork.BeginTransactionAsync();
                 var user = await _userRepository.GetUser(request.LoginRequest.Email);
                 if (user is null)
                     return Error.NotFound(description: "User not found");

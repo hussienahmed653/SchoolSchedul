@@ -14,7 +14,7 @@ namespace SchoolSchedule.Infrastructure.UniteOfWork
             _context = context;
         }
 
-        public async Task BegingTransactionAsync()
+        public async Task BeginTransactionAsync()
         {
             if(_transaction is null)
                 _transaction = await _context.Database.BeginTransactionAsync();

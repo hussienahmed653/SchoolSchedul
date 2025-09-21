@@ -22,7 +22,7 @@ namespace SchoolSchedule.Application.Subjects.Query.GetSubjects
         {
             try
             {
-                await _uniteOfWork.BegingTransactionAsync();
+                await _uniteOfWork.BeginTransactionAsync();
                 var subjects = await _subjectRepository.GetAllAsync();
 
                 if (subjects.Count is 0)
