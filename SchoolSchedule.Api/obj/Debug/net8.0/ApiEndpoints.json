@@ -81,6 +81,22 @@
   },
   {
     "ContainingType": "SchoolSchedule.Api.Controller.DepartementsController",
+    "Method": "AddDepartement",
+    "RelativePath": "api/Departements/AddDepartement",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "createDepartement",
+        "Type": "SchoolSchedule.Application.DTOs.DepartementDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SchoolSchedule.Api.Controller.DepartementsController",
     "Method": "GetAlldepartment",
     "RelativePath": "api/Departements/GetAlldepartment",
     "HttpMethod": "GET",
@@ -92,15 +108,31 @@
   {
     "ContainingType": "SchoolSchedule.Api.Controller.DepartementsController",
     "Method": "Getdepartmentbyclassid",
-    "RelativePath": "api/Departements/Getdepartmentbyclassid",
+    "RelativePath": "api/Departements/GetdepartmentbyGrdeId",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "classid",
+        "Name": "GradeId",
         "Type": "System.Int32",
         "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SchoolSchedule.Api.Controller.DepartementsController",
+    "Method": "RemoveDepartement",
+    "RelativePath": "api/Departements/RemoveDepartement",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "departementDto",
+        "Type": "SchoolSchedule.Application.DTOs.DepartementDto",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []

@@ -4,31 +4,29 @@ using Microsoft.EntityFrameworkCore;
 using SchoolSchedule.Application.Common.Interfaces;
 using SchoolSchedule.Application.Common.Interfaces.MediatorInterfaces;
 using SchoolSchedule.Application.Mapping.DBUpdateExceptions;
-using SchoolSchedule.Application.Mapping.Teachers;
 
-namespace SchoolSchedule.Application.Teachers.Command.CreateTeacher
+namespace SchoolSchedule.Application.Teachers.Command.RemoveTeacher
 {
-    public class CreateTeacherCommandHandler : IRequestHandler<CreateTeacherCommand, ErrorOr<Created>>
+    public class RemoveTeacherCommandHandler : IRequestHandler<RemoveTeacherCommand, ErrorOr<Deleted>>
     {
         private readonly IUniteOfWork _uniteOfWork;
         private readonly ITeacherRepository _teacherRepository;
 
-        public CreateTeacherCommandHandler(IUniteOfWork uniteOfWork,
+        public RemoveTeacherCommandHandler(IUniteOfWork uniteOfWork,
                                            ITeacherRepository teacherRepository)
         {
             _uniteOfWork = uniteOfWork;
             _teacherRepository = teacherRepository;
         }
 
-        public async Task<ErrorOr<Created>> Handle(CreateTeacherCommand request)
+        public async Task<ErrorOr<Deleted>> Handle(RemoveTeacherCommand request)
         {
             try
             {
                 await _uniteOfWork.BeginTransactionAsync();
-                var data = request.CreateTeacherDto.MapToTeacher();
-                await _teacherRepository.AddAsync(data);
+                // هنستني علي حتة حذف المدرس دي شويه لاني هضيف حاجات كتير هتاخد ال Id بتاع المدرس فحتاج وانا بحذف اعمل تشيك علي كل دول
                 await _uniteOfWork.CommitAsync();
-                return Result.Created;
+                return Result.Deleted;
             }
             catch (DbUpdateException ex) when (ex.InnerException is SqlException sqlException)
             {
@@ -39,7 +37,7 @@ namespace SchoolSchedule.Application.Teachers.Command.CreateTeacher
             catch
             {
                 await _uniteOfWork.RollbackAsync();
-                return Error.Failure("Can't Add Teacher", "Error while Addeing the teacher");
+                return Error.Failure(description: "حدث خطأ اثناء حذف هذا المدرس");
             }
         }
     }

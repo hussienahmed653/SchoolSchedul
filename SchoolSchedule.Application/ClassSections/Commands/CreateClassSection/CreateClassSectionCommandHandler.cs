@@ -1,7 +1,10 @@
 ﻿using ErrorOr;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 using SchoolSchedule.Application.Common.Interfaces;
 using SchoolSchedule.Application.Common.Interfaces.MediatorInterfaces;
 using SchoolSchedule.Application.Mapping.ClassSections;
+using SchoolSchedule.Application.Mapping.DBUpdateExceptions;
 
 namespace SchoolSchedule.Application.ClassSections.Commands.CreateClassSection
 {
@@ -30,6 +33,12 @@ namespace SchoolSchedule.Application.ClassSections.Commands.CreateClassSection
                 await _classSectionRepository.AddAsync(classsection);
                 await _uniteOfWork.CommitAsync();
                 return Result.Created;
+            }
+            catch (DbUpdateException ex) when (ex.InnerException is SqlException sqlException)
+            {
+                await _uniteOfWork.RollbackAsync();
+                var message = sqlException.MapToDbUpdateExceptionMessage();
+                return Error.Conflict(description: message);
             }
             catch
             {

@@ -25,7 +25,6 @@
 
   <ItemGroup>
     <Folder Include="Grades\Command\" />
-    <Folder Include="Departements\Command\" />
     <Folder Include="JobTitles\Command\" />
     <Folder Include="SubjectAssignments\Query\" />
   </ItemGroup>

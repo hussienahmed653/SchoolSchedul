@@ -151,6 +151,37 @@
         }
       }
     },
+    "/api/Departements/AddDepartement": {
+      "post": {
+        "tags": [
+          "Departements"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DepartementDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DepartementDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DepartementDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Departements/GetAlldepartment": {
       "get": {
         "tags": [
@@ -163,14 +194,14 @@
         }
       }
     },
-    "/api/Departements/Getdepartmentbyclassid": {
+    "/api/Departements/GetdepartmentbyGrdeId": {
       "get": {
         "tags": [
           "Departements"
         ],
         "parameters": [
           {
-            "name": "classid",
+            "name": "GradeId",
             "in": "query",
             "schema": {
               "type": "integer",
@@ -178,6 +209,37 @@
             }
           }
         ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Departements/RemoveDepartement": {
+      "delete": {
+        "tags": [
+          "Departements"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DepartementDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DepartementDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DepartementDto"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "OK"
@@ -396,6 +458,20 @@
           "workload": {
             "type": "integer",
             "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DepartementDto": {
+        "type": "object",
+        "properties": {
+          "gradeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "departementName": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false

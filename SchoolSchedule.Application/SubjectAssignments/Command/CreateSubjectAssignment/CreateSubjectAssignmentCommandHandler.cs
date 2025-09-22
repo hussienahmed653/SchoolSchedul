@@ -1,6 +1,9 @@
 ﻿using ErrorOr;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 using SchoolSchedule.Application.Common.Interfaces;
 using SchoolSchedule.Application.Common.Interfaces.MediatorInterfaces;
+using SchoolSchedule.Application.Mapping.DBUpdateExceptions;
 using SchoolSchedule.Application.Mapping.SubjectAssignments;
 
 namespace SchoolSchedule.Application.SubjectAssignments.Command.CreateSubjectAssignment
@@ -26,6 +29,12 @@ namespace SchoolSchedule.Application.SubjectAssignments.Command.CreateSubjectAss
                 await _subjectAssignmentRepository.AddAsync(maptosubjectassignment);
                 await _uniteOfWork.CommitAsync(); 
                 return Result.Created;
+            }
+            catch (DbUpdateException ex) when (ex.InnerException is SqlException sqlException)
+            {
+                await _uniteOfWork.RollbackAsync();
+                var message = sqlException.MapToDbUpdateExceptionMessage();
+                return Error.Conflict(description: message);
             }
             catch
             {

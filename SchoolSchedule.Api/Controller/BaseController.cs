@@ -8,7 +8,7 @@ namespace SchoolSchedule.Api.Controller
         protected IActionResult ProblemOr<T>(ErrorOr<T> result)
         {
             if(result.IsError)
-                return Problem(result.Errors.ToList());
+                return Problem(result.Errors);
 
             if (result.Value is Created)
                 return Created();
@@ -48,6 +48,10 @@ namespace SchoolSchedule.Api.Controller
                 return StatusCode(StatusCodes.Status409Conflict, errors);
             }
             else if (errors.All(error => error.Type == ErrorType.Unexpected))
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, errors);
+            }
+            else if(errors.All(error => error.Type == ErrorType.Failure))
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, errors);
             }

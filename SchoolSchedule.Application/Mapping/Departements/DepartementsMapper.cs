@@ -13,5 +13,13 @@ namespace SchoolSchedule.Application.Mapping.Departements
                 DepartementName = d.DepartementName,
             }).ToList();
         }
+        public static Departement MapToDepartement(this DepartementDto createDepartement)
+        {
+            return new Departement
+            {
+                GradeId = createDepartement.GradeId,
+                DepartementName = createDepartement.DepartementName
+            };
+        }
     }
 }

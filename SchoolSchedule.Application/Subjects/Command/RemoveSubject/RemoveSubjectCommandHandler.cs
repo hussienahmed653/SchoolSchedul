@@ -1,6 +1,9 @@
 ﻿using ErrorOr;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 using SchoolSchedule.Application.Common.Interfaces;
 using SchoolSchedule.Application.Common.Interfaces.MediatorInterfaces;
+using SchoolSchedule.Application.Mapping.DBUpdateExceptions;
 using SchoolSchedule.Application.Mapping.Subjects;
 
 namespace SchoolSchedule.Application.Subjects.Command.RemoveSubject
@@ -29,6 +32,12 @@ namespace SchoolSchedule.Application.Subjects.Command.RemoveSubject
                 await _subjectRepository.RemoveAsync(subject);
                 await _uniteOfWork.CommitAsync();
                 return Result.Deleted;
+            }
+            catch (DbUpdateException ex) when (ex.InnerException is SqlException sqlException)
+            {
+                await _uniteOfWork.RollbackAsync();
+                var message = sqlException.MapToDbUpdateExceptionMessage();
+                return Error.Conflict(description: message);
             }
             catch
             {
