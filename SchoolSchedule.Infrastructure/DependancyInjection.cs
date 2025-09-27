@@ -13,11 +13,13 @@ using SchoolSchedule.Infrastructure.ClassSections.Persistence;
 using SchoolSchedule.Infrastructure.DbConext;
 using SchoolSchedule.Infrastructure.Departements.Persistence;
 using SchoolSchedule.Infrastructure.JopTitles.Persistence;
+using SchoolSchedule.Infrastructure.Roles.Persistence;
 using SchoolSchedule.Infrastructure.SubjectAssignments.Persistence;
 using SchoolSchedule.Infrastructure.Subjects.Persistence;
 using SchoolSchedule.Infrastructure.TeacherAssignments;
 using SchoolSchedule.Infrastructure.Teachers.Persistence;
 using SchoolSchedule.Infrastructure.UniteOfWork;
+using SchoolSchedule.Infrastructure.UserRoles.Persistence;
 using SchoolSchedule.Infrastructure.Users.Persistence;
 using System.Text;
 
@@ -43,6 +45,8 @@ namespace SchoolSchedule.Infrastructure
             services.AddScoped<IPasswordHasher, PasswordHasher>();
             services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
             services.AddScoped<ITeacherAssignmentRepository, TeacherAssignmentRepository>();
+            services.AddScoped<IRolesRepository, RolesRepository>();
+            services.AddScoped<IUserRolesRepository, UserRolesRepository>();
 
             services.AddAuthenticationDI(configuration)
                 .AddAuthenticationToSwagger();

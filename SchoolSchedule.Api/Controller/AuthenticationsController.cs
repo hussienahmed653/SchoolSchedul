@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SchoolSchedule.Application.Authentications.Command.AddRolesToUser;
 using SchoolSchedule.Application.Authentications.Command.ChangePassword;
 using SchoolSchedule.Application.Authentications.Command.Register;
+using SchoolSchedule.Application.Authentications.Command.RemoveRoleFromUser;
+using SchoolSchedule.Application.Authentications.Query.GetAllRoles;
 using SchoolSchedule.Application.Authentications.Query.Login;
 using SchoolSchedule.Application.Common.Interfaces.MediatorInterfaces;
 using SchoolSchedule.Application.DTOs;
@@ -37,6 +39,27 @@ namespace SchoolSchedule.Api.Controller
         public async Task<IActionResult> ChangePassword(ChangePasswordDto changePassword)
         {
             var result = await _mediator.Send(new ChangePasswordCommand(changePassword));
+            return ProblemOr(result);
+        }
+        [Authorize(Roles = "SuperAdmin")]
+        [HttpPost("AddRoleToUser")]
+        public async Task<IActionResult> AddRoleToUser(ManageRoleToUserDto manageRoleToUser)
+        {
+            var result = await _mediator.Send(new AddRoleToUserCommand(manageRoleToUser));
+            return ProblemOr(result);
+        }
+        [Authorize(Roles = "SuperAdmin")]
+        [HttpGet("GetAllRoles")]
+        public async Task<IActionResult> GetAllRoles()
+        {
+            var result = await _mediator.Send(new GetAllRolesQuery());
+            return ProblemOr(result);
+        }
+        [Authorize(Roles = "SuperAdmin")]
+        [HttpDelete("RemoveRoleFromUser")]
+        public async Task<IActionResult> RemoveRoleFromUser(ManageRoleToUserDto manageRoleToUser)
+        {
+            var result = await _mediator.Send(new RemoveRoleFromUserCommand(manageRoleToUser));
             return ProblemOr(result);
         }
     }

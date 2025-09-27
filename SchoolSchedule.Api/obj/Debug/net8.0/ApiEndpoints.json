@@ -1,6 +1,22 @@
 [
   {
     "ContainingType": "SchoolSchedule.Api.Controller.AuthenticationsController",
+    "Method": "AddRoleToUser",
+    "RelativePath": "api/Authentications/AddRoleToUser",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "manageRoleToUser",
+        "Type": "SchoolSchedule.Application.DTOs.ManageRoleToUserDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SchoolSchedule.Api.Controller.AuthenticationsController",
     "Method": "ChangePassword",
     "RelativePath": "api/Authentications/ChangePassword",
     "HttpMethod": "POST",
@@ -13,6 +29,16 @@
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SchoolSchedule.Api.Controller.AuthenticationsController",
+    "Method": "GetAllRoles",
+    "RelativePath": "api/Authentications/GetAllRoles",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {
@@ -42,6 +68,22 @@
       {
         "Name": "registerRequest",
         "Type": "SchoolSchedule.Application.DTOs.Authentications.RegisterRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SchoolSchedule.Api.Controller.AuthenticationsController",
+    "Method": "RemoveRoleFromUser",
+    "RelativePath": "api/Authentications/RemoveRoleFromUser",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "manageRoleToUser",
+        "Type": "SchoolSchedule.Application.DTOs.ManageRoleToUserDto",
         "IsRequired": true
       }
     ],
