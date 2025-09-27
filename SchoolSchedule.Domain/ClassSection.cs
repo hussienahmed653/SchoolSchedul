@@ -9,5 +9,6 @@
         public string SectionName { get; set; }
 
         public ICollection<SubjectAssignment> Assignments { get; set; } = new List<SubjectAssignment>();
+        public ICollection<TeacherAssignment> TeacherAssignments { get; set; } = new List<TeacherAssignment>();
     }
 }

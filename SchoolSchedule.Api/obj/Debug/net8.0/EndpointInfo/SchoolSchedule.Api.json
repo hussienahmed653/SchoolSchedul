@@ -67,6 +67,37 @@
         }
       }
     },
+    "/api/Authentications/ChangePassword": {
+      "post": {
+        "tags": [
+          "Authentications"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangePasswordDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangePasswordDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangePasswordDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/ClassSections/AddClassSection": {
       "post": {
         "tags": [
@@ -356,6 +387,68 @@
         }
       }
     },
+    "/api/TeacherAssignments/CreateTeacherAssignment": {
+      "post": {
+        "tags": [
+          "TeacherAssignments"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TeacherAssignmentDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TeacherAssignmentDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/TeacherAssignmentDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/TeacherAssignments/RemoveTeacherAssignment": {
+      "delete": {
+        "tags": [
+          "TeacherAssignments"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TeacherAssignmentDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TeacherAssignmentDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/TeacherAssignmentDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Teachers/AddTeacher": {
       "post": {
         "tags": [
@@ -411,6 +504,20 @@
   },
   "components": {
     "schemas": {
+      "ChangePasswordDto": {
+        "type": "object",
+        "properties": {
+          "newPassword": {
+            "type": "string",
+            "nullable": true
+          },
+          "confirmNewPassword": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "CreateClassSectionDto": {
         "type": "object",
         "properties": {
@@ -520,6 +627,28 @@
           "confirmPassword": {
             "type": "string",
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TeacherAssignmentDto": {
+        "type": "object",
+        "properties": {
+          "teacherId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "subjectId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "gradeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "classSectionId": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false

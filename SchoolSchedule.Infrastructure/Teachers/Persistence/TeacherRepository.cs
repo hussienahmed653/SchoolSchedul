@@ -24,7 +24,15 @@ namespace SchoolSchedule.Infrastructure.Teachers.Persistence
         public async Task<List<Teacher>> GetAllAsync(string? teachername = null)
         {
             return await _context.Teachers
-                .Where(t => teachername == null || EF.Functions.Like(t.TeacherName.ToLower(), $"%{teachername.ToLower()}%"))
+                .Where(t => (teachername == null 
+                || EF.Functions.Like(t.TeacherName.ToLower(), $"%{teachername.ToLower()}%")) && t.IsActive)
+                .Include(t => t.JobTitle)
+                .Include(t => t.TeacherAssignments)
+                .ThenInclude(ta => ta.Subject)
+                .Include(t => t.TeacherAssignments)
+                .ThenInclude(ta => ta.Grade)
+                .Include(t => t.TeacherAssignments)
+                .ThenInclude(ta => ta.ClassSection)
                 .ToListAsync();
         }
     }

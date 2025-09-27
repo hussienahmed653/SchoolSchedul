@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using SchoolSchedule.Application.Common.Interfaces;
 using SchoolSchedule.Application.Common.Interfaces.MediatorInterfaces;
 using SchoolSchedule.Application.MediatorServices;
 using System.Text.Json.Serialization;

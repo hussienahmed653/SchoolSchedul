@@ -9,5 +9,6 @@
         public ICollection<Departement> Departements { get; set; } = new List<Departement>();
         public ICollection<SubjectAssignment> Assignments { get; set; } = new List<SubjectAssignment>();
         public ICollection<ClassSection> ClassSections { get; set; } = new List<ClassSection>();
+        public ICollection<TeacherAssignment> TeacherAssignments { get; set; } = new List<TeacherAssignment>();
     }
 }

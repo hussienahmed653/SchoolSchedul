@@ -25,6 +25,7 @@ namespace SchoolSchedule.Infrastructure.DbConext
         public DbSet<ClassSection> ClassSection { get; set; }
         public DbSet<JobTitle> JobTitles { get; set; }
         public DbSet<Teacher> Teachers { get; set; }
+        public DbSet<TeacherAssignment> TeacherAssignment { get; set; }
         
     }
 }

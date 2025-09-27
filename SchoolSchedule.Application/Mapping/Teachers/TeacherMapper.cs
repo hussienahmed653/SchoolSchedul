@@ -20,5 +20,37 @@ namespace SchoolSchedule.Application.Mapping.Teachers
                 
             };
         }
+
+        public static List<TeacherResponseDto> MapToTeacherResponse(this List<Teacher> teachers)
+        {
+            return teachers.Select(t => new TeacherResponseDto
+            {
+                TeacherName = t.TeacherName,
+                JobTitle = t.JobTitle.JobTitleName,
+                BirthDate = t.BirthDate,
+                HireDate = t.HireDate,
+                MinistryStartDate = t.MinistryStartDate,
+                SchoolStartDate = t.SchoolStartDate,
+                WorkType = t.WorkType.ToString(),
+                Workload = t.Workload,
+                AddedOn = t.AddedOn,
+                Subject = t.TeacherAssignments
+                .GroupBy(ta => ta.Subject.SubjectName)
+                .Select(subjectgroup => new SubjectDto
+                {
+                    SubjectName = subjectgroup.Key,
+                    Grade = subjectgroup
+                    .GroupBy(g => g.Grade.GradeYear)
+                    .Select(gradeGroup => new GradeDto
+                    {
+                        GradeYear = gradeGroup.Key,
+                        ClassSections = gradeGroup.Select(cs => new ClassSectionDto
+                        {
+                            ClassSectionName = cs.ClassSection.SectionName
+                        }).ToList()
+                    }).ToList(),
+                }).ToList(),
+            }).ToList();
+        }
     }
 }

@@ -1,3 +1,4 @@
+using SchoolSchedule.Api;
 using SchoolSchedule.Application;
 using SchoolSchedule.Infrastructure;
 
@@ -11,7 +12,8 @@ builder.Services.AddEndpointsApiExplorer();
 //builder.Services.AddSwaggerGen();
 
 builder.Services.AddInfrastructure(builder.Configuration)
-    .AddApplication();
+    .AddApplication()
+    .AddApi();
 
 var app = builder.Build();
 

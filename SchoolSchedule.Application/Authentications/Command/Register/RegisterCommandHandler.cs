@@ -29,8 +29,9 @@ namespace SchoolSchedule.Application.Authentications.Command.Register
             try
             {
                 await _uniteOfWork.BeginTransactionAsync();
-                if(await _userRepository.ExistByEmailAsync(request.registerRequest.Email))
-                    return Error.Conflict(description: "Email already exist");
+                var user = await _userRepository.ExistByEmailAsync(request.registerRequest.Email);
+                if (user is not null)
+                    return Error.Conflict(description: "هذا الإميل موجود من قبل");
 
                 if(request.registerRequest.Password != request.registerRequest.ConfirmPassword)
                     return Error.Validation(description: "Password do not match");

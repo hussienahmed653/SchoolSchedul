@@ -288,6 +288,42 @@ namespace SchoolSchedule.Infrastructure.Migrations
                         });
                 });
 
+            modelBuilder.Entity("SchoolSchedule.Domain.TeacherAssignment", b =>
+                {
+                    b.Property<int>("TeacherAssignmentId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ClassSectionId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("GradeId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SubjectId")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("TeacherAssignmentGuid")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier")
+                        .HasDefaultValueSql("NEWID()");
+
+                    b.Property<int>("TeacherId")
+                        .HasColumnType("int");
+
+                    b.HasKey("TeacherAssignmentId");
+
+                    b.HasIndex("ClassSectionId");
+
+                    b.HasIndex("GradeId");
+
+                    b.HasIndex("SubjectId");
+
+                    b.HasIndex("TeacherId", "SubjectId", "GradeId", "ClassSectionId")
+                        .IsUnique();
+
+                    b.ToTable("TeacherAssignment");
+                });
+
             modelBuilder.Entity("SchoolSchedule.Domain.User", b =>
                 {
                     b.Property<int>("UserId")
@@ -403,6 +439,41 @@ namespace SchoolSchedule.Infrastructure.Migrations
                     b.Navigation("JobTitle");
                 });
 
+            modelBuilder.Entity("SchoolSchedule.Domain.TeacherAssignment", b =>
+                {
+                    b.HasOne("SchoolSchedule.Domain.ClassSection", "ClassSection")
+                        .WithMany("TeacherAssignments")
+                        .HasForeignKey("ClassSectionId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("SchoolSchedule.Domain.Grade", "Grade")
+                        .WithMany("TeacherAssignments")
+                        .HasForeignKey("GradeId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("SchoolSchedule.Domain.Subject", "Subject")
+                        .WithMany("TeacherAssignments")
+                        .HasForeignKey("SubjectId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("SchoolSchedule.Domain.Teacher", "Teacher")
+                        .WithMany("TeacherAssignments")
+                        .HasForeignKey("TeacherId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("ClassSection");
+
+                    b.Navigation("Grade");
+
+                    b.Navigation("Subject");
+
+                    b.Navigation("Teacher");
+                });
+
             modelBuilder.Entity("SchoolSchedule.Domain.UserRole", b =>
                 {
                     b.HasOne("SchoolSchedule.Domain.Role", "Role")
@@ -425,6 +496,8 @@ namespace SchoolSchedule.Infrastructure.Migrations
             modelBuilder.Entity("SchoolSchedule.Domain.ClassSection", b =>
                 {
                     b.Navigation("Assignments");
+
+                    b.Navigation("TeacherAssignments");
                 });
 
             modelBuilder.Entity("SchoolSchedule.Domain.Departement", b =>
@@ -439,6 +512,8 @@ namespace SchoolSchedule.Infrastructure.Migrations
                     b.Navigation("ClassSections");
 
                     b.Navigation("Departements");
+
+                    b.Navigation("TeacherAssignments");
                 });
 
             modelBuilder.Entity("SchoolSchedule.Domain.JobTitle", b =>
@@ -454,6 +529,13 @@ namespace SchoolSchedule.Infrastructure.Migrations
             modelBuilder.Entity("SchoolSchedule.Domain.Subject", b =>
                 {
                     b.Navigation("Assignments");
+
+                    b.Navigation("TeacherAssignments");
+                });
+
+            modelBuilder.Entity("SchoolSchedule.Domain.Teacher", b =>
+                {
+                    b.Navigation("TeacherAssignments");
                 });
 
             modelBuilder.Entity("SchoolSchedule.Domain.User", b =>

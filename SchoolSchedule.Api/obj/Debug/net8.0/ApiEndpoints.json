@@ -1,6 +1,22 @@
 [
   {
     "ContainingType": "SchoolSchedule.Api.Controller.AuthenticationsController",
+    "Method": "ChangePassword",
+    "RelativePath": "api/Authentications/ChangePassword",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "changePassword",
+        "Type": "SchoolSchedule.Application.DTOs.ChangePasswordDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SchoolSchedule.Api.Controller.AuthenticationsController",
     "Method": "Login",
     "RelativePath": "api/Authentications/login",
     "HttpMethod": "POST",
@@ -211,6 +227,38 @@
         "Name": "SubjectName",
         "Type": "System.String",
         "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SchoolSchedule.Api.Controller.TeacherAssignmentsController",
+    "Method": "CreateTeacherAssignment",
+    "RelativePath": "api/TeacherAssignments/CreateTeacherAssignment",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "teacherAssignment",
+        "Type": "SchoolSchedule.Application.DTOs.TeacherAssignmentDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SchoolSchedule.Api.Controller.TeacherAssignmentsController",
+    "Method": "RemoveTeacherAssignment",
+    "RelativePath": "api/TeacherAssignments/RemoveTeacherAssignment",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "teacherAssignment",
+        "Type": "SchoolSchedule.Application.DTOs.TeacherAssignmentDto",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []

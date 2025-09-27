@@ -15,6 +15,7 @@
         public int Workload { get; set; } // النصاب
         public DateTime AddedOn { get; set; }
         public bool IsActive { get; set; } = true;
+        public ICollection<TeacherAssignment> TeacherAssignments { get; set; } = new List<TeacherAssignment>();
 
     }
 

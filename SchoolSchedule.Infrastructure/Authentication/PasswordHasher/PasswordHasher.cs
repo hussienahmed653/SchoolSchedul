@@ -10,8 +10,8 @@ namespace SchoolSchedule.Infrastructure.Authentication.PasswordHasher
         public ErrorOr<string> HashPassword(string password)
         {
             return _strongPasswordRegex.IsMatch(password)
-                ? BCrypt.Net.BCrypt.HashPassword(password)
-                : Error.Conflict("Password.NotStrong", "Password is not strong enough. It must be at least 10 characters long, contain at least one uppercase letter, one lowercase letter, and one digit, and have no whitespace.");
+                ? BCrypt.Net.BCrypt.EnhancedHashPassword(password)
+                : Error.Conflict("Password.NotStrong", ".كلمة المرور ليست قوية بما يكفي. يجب ألا يقل طولها عن ١٠ أحرف، وأن تحتوي على حرف كبير واحد على الأقل، وحرف صغير واحد، ورقم واحد، وألا تحتوي على مسافات");
         }
 
         public bool VerifyPassword(string password, string hashpassword)

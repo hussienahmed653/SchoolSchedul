@@ -21,11 +21,15 @@ namespace SchoolSchedule.Infrastructure.Users.Persistence
             await _context.SaveChangesAsync();
         }
 
-        public async Task<bool> ExistByEmailAsync(string email)
+        public async Task ChangePasswordAsync()
+        {
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task<User> ExistByEmailAsync(string email)
         {
             return await _context.Users
-                .AsNoTracking()
-                .AnyAsync(u => u.Email == email);
+                .SingleOrDefaultAsync(u => u.Email == email);
         }
 
         public async Task<User> GetUser(string email)

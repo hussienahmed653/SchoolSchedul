@@ -15,6 +15,7 @@ using SchoolSchedule.Infrastructure.Departements.Persistence;
 using SchoolSchedule.Infrastructure.JopTitles.Persistence;
 using SchoolSchedule.Infrastructure.SubjectAssignments.Persistence;
 using SchoolSchedule.Infrastructure.Subjects.Persistence;
+using SchoolSchedule.Infrastructure.TeacherAssignments;
 using SchoolSchedule.Infrastructure.Teachers.Persistence;
 using SchoolSchedule.Infrastructure.UniteOfWork;
 using SchoolSchedule.Infrastructure.Users.Persistence;
@@ -41,6 +42,8 @@ namespace SchoolSchedule.Infrastructure
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IPasswordHasher, PasswordHasher>();
             services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
+            services.AddScoped<ITeacherAssignmentRepository, TeacherAssignmentRepository>();
+
             services.AddAuthenticationDI(configuration)
                 .AddAuthenticationToSwagger();
             return services;
