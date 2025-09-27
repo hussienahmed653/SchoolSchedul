@@ -21,7 +21,7 @@ namespace SchoolSchedule.Infrastructure.Teachers.Persistence
             await _context.SaveChangesAsync();
         }
 
-        public async Task<List<Teacher>> GetAllAsync(string? teachername = null)
+        public async Task<List<Teacher>> GetAllAsync(int pagenumber, string? teachername = null)
         {
             return await _context.Teachers
                 .Where(t => (teachername == null 
@@ -33,6 +33,8 @@ namespace SchoolSchedule.Infrastructure.Teachers.Persistence
                 .ThenInclude(ta => ta.Grade)
                 .Include(t => t.TeacherAssignments)
                 .ThenInclude(ta => ta.ClassSection)
+                .Skip((pagenumber - 1) * 10)
+                .Take(10) 
                 .ToListAsync();
         }
     }

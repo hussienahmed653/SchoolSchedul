@@ -3,7 +3,6 @@ using SchoolSchedule.Application.Common.Interfaces;
 using SchoolSchedule.Application.Common.Interfaces.MediatorInterfaces;
 using SchoolSchedule.Application.DTOs;
 using SchoolSchedule.Application.Mapping.Teachers;
-using SchoolSchedule.Domain;
 
 namespace SchoolSchedule.Application.Teachers.Query.GetTeachers
 {
@@ -23,7 +22,7 @@ namespace SchoolSchedule.Application.Teachers.Query.GetTeachers
             try
             {
                 await _uniteOfWork.BeginTransactionAsync();
-                var teachers = await _teacherRepository.GetAllAsync(request.teachername);
+                var teachers = await _teacherRepository.GetAllAsync(request.pagenumber, request.teachername);
                 if (teachers.Count is 0)
                     return Error.NotFound(description: "لا يوجد مدرسين لعرضهم");
 

@@ -5,5 +5,5 @@ using SchoolSchedule.Domain;
 
 namespace SchoolSchedule.Application.Teachers.Query.GetTeachers
 {
-    public record GetTeachersQuery(string? teachername = null) : IRequest<ErrorOr<List<TeacherResponseDto>>>;
+    public record GetTeachersQuery(int pagenumber, string? teachername = null) : IRequest<ErrorOr<List<TeacherResponseDto>>>;
 }

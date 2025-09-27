@@ -561,6 +561,15 @@
         ],
         "parameters": [
           {
+            "name": "pagenumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
             "name": "teachername",
             "in": "query",
             "schema": {

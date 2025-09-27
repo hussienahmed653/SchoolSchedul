@@ -22,9 +22,9 @@ namespace SchoolSchedule.Api.Controller
             return ProblemOr(result);
         }
         [HttpGet("GetTeachers")]
-        public async Task<IActionResult> GetTeachers(string? teachername = null)
+        public async Task<IActionResult> GetTeachers(int pagenumber = 1, string? teachername = null)
         {
-            var result = await _mediator.Send(new GetTeachersQuery(teachername));
+            var result = await _mediator.Send(new GetTeachersQuery(pagenumber, teachername));
             return ProblemOr(result);
         }
     }
