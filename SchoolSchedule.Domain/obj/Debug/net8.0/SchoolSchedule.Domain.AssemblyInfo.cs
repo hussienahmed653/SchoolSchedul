@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SchoolSchedule.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+62a255d481c72af22fb121abc9174dfdc4f9b6bb")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b2c8f0c613ff8bc35bdf126ca38040b4aa6e974c")]
 [assembly: System.Reflection.AssemblyProductAttribute("SchoolSchedule.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SchoolSchedule.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -20,6 +20,9 @@ namespace SchoolSchedule.Infrastructure.Subjects.Persistence
             builder.Property(s => s.SubjectGuid)
                 .HasDefaultValueSql("NEWID()");
 
+            builder.Property(s => s.FixedDay)
+                .HasDefaultValue(false);
+
             builder.HasMany(s => s.Assignments)
                .WithOne(a => a.Subject)
                .HasForeignKey(a => a.SubjectId);
