@@ -12,5 +12,6 @@
         public Grade Grade { get; set; }
         public int ClassSectionId { get; set; }
         public ClassSection ClassSection { get; set; }
+        public ICollection<TimeTableEntry> timeTableEntries { get; set; } = new List<TimeTableEntry>();
     }
 }

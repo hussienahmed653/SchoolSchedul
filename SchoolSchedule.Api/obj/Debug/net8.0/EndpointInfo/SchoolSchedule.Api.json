@@ -376,6 +376,18 @@
         }
       }
     },
+    "/api/SchoolWeeks/GetAll": {
+      "get": {
+        "tags": [
+          "SchoolWeeks"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/SubjectAssignments/CreateSubjectAssignment": {
       "post": {
         "tags": [

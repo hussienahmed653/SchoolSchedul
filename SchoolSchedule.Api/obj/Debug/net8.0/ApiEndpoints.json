@@ -216,6 +216,16 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "SchoolSchedule.Api.Controller.SchoolWeeksController",
+    "Method": "GetAll",
+    "RelativePath": "api/SchoolWeeks/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "SchoolSchedule.Api.Controller.SubjectAssignmentsController",
     "Method": "CreateSubjectAssignment",
     "RelativePath": "api/SubjectAssignments/CreateSubjectAssignment",

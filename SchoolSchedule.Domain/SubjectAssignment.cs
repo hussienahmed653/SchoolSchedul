@@ -22,6 +22,7 @@
         public DateTime AddedOn { get; set; } = DateTime.UtcNow;
         public bool IsDeleted { get; set; } = false;
         public DateTime? DeletedOn { get; set; }
+        public ICollection<TimeTableEntry> timeTableEntries { get; set; } = new List<TimeTableEntry>();
 
     }
     public enum Key

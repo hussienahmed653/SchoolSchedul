@@ -20,12 +20,21 @@ namespace SchoolSchedule.Infrastructure.Subjects.Persistence
             builder.Property(s => s.SubjectGuid)
                 .HasDefaultValueSql("NEWID()");
 
-            builder.Property(s => s.FixedDay)
+            builder.Property(s => s.IsFixed)
                 .HasDefaultValue(false);
+
+            builder.Property(s => s.IsReligious)
+                .HasDefaultValue(false);
+
+            builder.HasOne(s => s.FixedDay)
+                .WithMany(d => d.Subjects)
+                .HasForeignKey(s => s.FixedDayId)
+                .OnDelete(DeleteBehavior.NoAction);
 
             builder.HasMany(s => s.Assignments)
                .WithOne(a => a.Subject)
-               .HasForeignKey(a => a.SubjectId);
+               .HasForeignKey(a => a.SubjectId)
+               .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }
