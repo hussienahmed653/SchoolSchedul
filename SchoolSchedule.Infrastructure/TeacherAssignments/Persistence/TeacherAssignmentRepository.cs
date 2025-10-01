@@ -4,7 +4,7 @@ using SchoolSchedule.Application.DTOs;
 using SchoolSchedule.Domain;
 using SchoolSchedule.Infrastructure.DbConext;
 
-namespace SchoolSchedule.Infrastructure.TeacherAssignments
+namespace SchoolSchedule.Infrastructure.TeacherAssignments.Persistence
 {
     internal class TeacherAssignmentRepository : ITeacherAssignmentRepository
     {
@@ -26,8 +26,8 @@ namespace SchoolSchedule.Infrastructure.TeacherAssignments
         {
             return await _context.TeacherAssignment
                 .SingleOrDefaultAsync(t => t.TeacherId == teacherAssignmentDto.TeacherId &&
-                            t.SubjectId == teacherAssignmentDto.SubjectId &&
-                            t.GradeId == teacherAssignmentDto.GradeId &&
+                            //t.SubjectId == teacherAssignmentDto.SubjectId &&
+                            //t.GradeId == teacherAssignmentDto.GradeId &&
                             t.ClassSectionId == teacherAssignmentDto.ClassSectionId);
         }
 

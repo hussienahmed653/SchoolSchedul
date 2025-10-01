@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\hussi\\source\\repos\\SchoolSchedule\\SchoolSchedule.Api\\SchoolSchedule.Api.csproj": {}
+    "C:\\Users\\hussi\\Source\\Repos\\SchoolSchedule\\SchoolSchedule.Api\\SchoolSchedule.Api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\hussi\\source\\repos\\SchoolSchedule\\SchoolSchedule.Api\\SchoolSchedule.Api.csproj": {
+    "C:\\Users\\hussi\\Source\\Repos\\SchoolSchedule\\SchoolSchedule.Api\\SchoolSchedule.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hussi\\source\\repos\\SchoolSchedule\\SchoolSchedule.Api\\SchoolSchedule.Api.csproj",
+        "projectUniqueName": "C:\\Users\\hussi\\Source\\Repos\\SchoolSchedule\\SchoolSchedule.Api\\SchoolSchedule.Api.csproj",
         "projectName": "SchoolSchedule.Api",
-        "projectPath": "C:\\Users\\hussi\\source\\repos\\SchoolSchedule\\SchoolSchedule.Api\\SchoolSchedule.Api.csproj",
+        "projectPath": "C:\\Users\\hussi\\Source\\Repos\\SchoolSchedule\\SchoolSchedule.Api\\SchoolSchedule.Api.csproj",
         "packagesPath": "C:\\Users\\hussi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hussi\\source\\repos\\SchoolSchedule\\SchoolSchedule.Api\\obj\\",
+        "outputPath": "C:\\Users\\hussi\\Source\\Repos\\SchoolSchedule\\SchoolSchedule.Api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -33,11 +33,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\hussi\\source\\repos\\SchoolSchedule\\SchoolSchedule.Application\\SchoolSchedule.Application.csproj": {
-                "projectPath": "C:\\Users\\hussi\\source\\repos\\SchoolSchedule\\SchoolSchedule.Application\\SchoolSchedule.Application.csproj"
+              "C:\\Users\\hussi\\Source\\Repos\\SchoolSchedule\\SchoolSchedule.Application\\SchoolSchedule.Application.csproj": {
+                "projectPath": "C:\\Users\\hussi\\Source\\Repos\\SchoolSchedule\\SchoolSchedule.Application\\SchoolSchedule.Application.csproj"
               },
-              "C:\\Users\\hussi\\source\\repos\\SchoolSchedule\\SchoolSchedule.Infrastructure\\SchoolSchedule.Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\hussi\\source\\repos\\SchoolSchedule\\SchoolSchedule.Infrastructure\\SchoolSchedule.Infrastructure.csproj"
+              "C:\\Users\\hussi\\Source\\Repos\\SchoolSchedule\\SchoolSchedule.Infrastructure\\SchoolSchedule.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\hussi\\Source\\Repos\\SchoolSchedule\\SchoolSchedule.Infrastructure\\SchoolSchedule.Infrastructure.csproj"
               }
             }
           }
@@ -116,14 +116,14 @@
         }
       }
     },
-    "C:\\Users\\hussi\\source\\repos\\SchoolSchedule\\SchoolSchedule.Application\\SchoolSchedule.Application.csproj": {
+    "C:\\Users\\hussi\\Source\\Repos\\SchoolSchedule\\SchoolSchedule.Application\\SchoolSchedule.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hussi\\source\\repos\\SchoolSchedule\\SchoolSchedule.Application\\SchoolSchedule.Application.csproj",
+        "projectUniqueName": "C:\\Users\\hussi\\Source\\Repos\\SchoolSchedule\\SchoolSchedule.Application\\SchoolSchedule.Application.csproj",
         "projectName": "SchoolSchedule.Application",
-        "projectPath": "C:\\Users\\hussi\\source\\repos\\SchoolSchedule\\SchoolSchedule.Application\\SchoolSchedule.Application.csproj",
+        "projectPath": "C:\\Users\\hussi\\Source\\Repos\\SchoolSchedule\\SchoolSchedule.Application\\SchoolSchedule.Application.csproj",
         "packagesPath": "C:\\Users\\hussi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hussi\\source\\repos\\SchoolSchedule\\SchoolSchedule.Application\\obj\\",
+        "outputPath": "C:\\Users\\hussi\\Source\\Repos\\SchoolSchedule\\SchoolSchedule.Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -145,8 +145,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\hussi\\source\\repos\\SchoolSchedule\\SchoolSchedule.Domain\\SchoolSchedule.Domain.csproj": {
-                "projectPath": "C:\\Users\\hussi\\source\\repos\\SchoolSchedule\\SchoolSchedule.Domain\\SchoolSchedule.Domain.csproj"
+              "C:\\Users\\hussi\\Source\\Repos\\SchoolSchedule\\SchoolSchedule.Domain\\SchoolSchedule.Domain.csproj": {
+                "projectPath": "C:\\Users\\hussi\\Source\\Repos\\SchoolSchedule\\SchoolSchedule.Domain\\SchoolSchedule.Domain.csproj"
               }
             }
           }
@@ -218,14 +218,14 @@
         }
       }
     },
-    "C:\\Users\\hussi\\source\\repos\\SchoolSchedule\\SchoolSchedule.Domain\\SchoolSchedule.Domain.csproj": {
+    "C:\\Users\\hussi\\Source\\Repos\\SchoolSchedule\\SchoolSchedule.Domain\\SchoolSchedule.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hussi\\source\\repos\\SchoolSchedule\\SchoolSchedule.Domain\\SchoolSchedule.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\hussi\\Source\\Repos\\SchoolSchedule\\SchoolSchedule.Domain\\SchoolSchedule.Domain.csproj",
         "projectName": "SchoolSchedule.Domain",
-        "projectPath": "C:\\Users\\hussi\\source\\repos\\SchoolSchedule\\SchoolSchedule.Domain\\SchoolSchedule.Domain.csproj",
+        "projectPath": "C:\\Users\\hussi\\Source\\Repos\\SchoolSchedule\\SchoolSchedule.Domain\\SchoolSchedule.Domain.csproj",
         "packagesPath": "C:\\Users\\hussi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hussi\\source\\repos\\SchoolSchedule\\SchoolSchedule.Domain\\obj\\",
+        "outputPath": "C:\\Users\\hussi\\Source\\Repos\\SchoolSchedule\\SchoolSchedule.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -316,14 +316,14 @@
         }
       }
     },
-    "C:\\Users\\hussi\\source\\repos\\SchoolSchedule\\SchoolSchedule.Infrastructure\\SchoolSchedule.Infrastructure.csproj": {
+    "C:\\Users\\hussi\\Source\\Repos\\SchoolSchedule\\SchoolSchedule.Infrastructure\\SchoolSchedule.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hussi\\source\\repos\\SchoolSchedule\\SchoolSchedule.Infrastructure\\SchoolSchedule.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\hussi\\Source\\Repos\\SchoolSchedule\\SchoolSchedule.Infrastructure\\SchoolSchedule.Infrastructure.csproj",
         "projectName": "SchoolSchedule.Infrastructure",
-        "projectPath": "C:\\Users\\hussi\\source\\repos\\SchoolSchedule\\SchoolSchedule.Infrastructure\\SchoolSchedule.Infrastructure.csproj",
+        "projectPath": "C:\\Users\\hussi\\Source\\Repos\\SchoolSchedule\\SchoolSchedule.Infrastructure\\SchoolSchedule.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\hussi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hussi\\source\\repos\\SchoolSchedule\\SchoolSchedule.Infrastructure\\obj\\",
+        "outputPath": "C:\\Users\\hussi\\Source\\Repos\\SchoolSchedule\\SchoolSchedule.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -345,8 +345,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\hussi\\source\\repos\\SchoolSchedule\\SchoolSchedule.Application\\SchoolSchedule.Application.csproj": {
-                "projectPath": "C:\\Users\\hussi\\source\\repos\\SchoolSchedule\\SchoolSchedule.Application\\SchoolSchedule.Application.csproj"
+              "C:\\Users\\hussi\\Source\\Repos\\SchoolSchedule\\SchoolSchedule.Application\\SchoolSchedule.Application.csproj": {
+                "projectPath": "C:\\Users\\hussi\\Source\\Repos\\SchoolSchedule\\SchoolSchedule.Application\\SchoolSchedule.Application.csproj"
               }
             }
           }

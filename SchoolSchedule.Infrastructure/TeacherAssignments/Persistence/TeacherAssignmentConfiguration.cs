@@ -17,7 +17,10 @@ namespace SchoolSchedule.Infrastructure.TeacherAssignments.Persistence
                 .IsRequired()
                 .HasDefaultValueSql("NEWID()");
 
-            builder.HasIndex(t => new { t.TeacherId, t.SubjectId, t.GradeId, t.ClassSectionId })
+            builder.Property(t => t.SubjectAssignmentId)
+                .IsRequired(false);
+
+            builder.HasIndex(t => new { t.TeacherId, t.SubjectAssignmentId, t.ClassSectionId })
                 .IsUnique();
 
             builder.HasOne(t => t.Teacher)
@@ -25,20 +28,17 @@ namespace SchoolSchedule.Infrastructure.TeacherAssignments.Persistence
                 .HasForeignKey(t => t.TeacherId)
                 .OnDelete(DeleteBehavior.NoAction);
 
-            builder.HasOne(t => t.Subject)
+            builder.HasOne(t => t.SubjectAssignment)
                 .WithMany(t => t.TeacherAssignments)
-                .HasForeignKey(t => t.SubjectId)
+                .HasForeignKey(t => t.SubjectAssignmentId)
                 .OnDelete(DeleteBehavior.NoAction);
+
 
             builder.HasOne(t => t.ClassSection)
                 .WithMany(t => t.TeacherAssignments)
                 .HasForeignKey(t => t.ClassSectionId)
                 .OnDelete(DeleteBehavior.NoAction);
             
-            builder.HasOne(t => t.Grade)
-                .WithMany(t => t.TeacherAssignments)
-                .HasForeignKey(t => t.GradeId)
-                .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

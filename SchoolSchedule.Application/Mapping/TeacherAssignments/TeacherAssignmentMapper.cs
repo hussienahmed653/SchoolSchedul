@@ -10,8 +10,6 @@ namespace SchoolSchedule.Application.Mapping.TeacherAssignments
             return new TeacherAssignment
             {
                 TeacherId = teacherAssignmentDto.TeacherId,
-                SubjectId = teacherAssignmentDto.SubjectId,
-                GradeId = teacherAssignmentDto.GradeId,
                 ClassSectionId = teacherAssignmentDto.ClassSectionId
             };
         }

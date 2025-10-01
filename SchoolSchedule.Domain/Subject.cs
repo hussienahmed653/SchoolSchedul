@@ -11,6 +11,5 @@
         public int FixedPeriod { get; set; }
         public bool IsReligious { get; set; } = false;
         public ICollection<SubjectAssignment> Assignments { get; set; } = new List<SubjectAssignment>();
-        public ICollection<TeacherAssignment> TeacherAssignments { get; set; } = new List<TeacherAssignment>();
     }
 }

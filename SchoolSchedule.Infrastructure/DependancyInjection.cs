@@ -17,7 +17,7 @@ using SchoolSchedule.Infrastructure.Roles.Persistence;
 using SchoolSchedule.Infrastructure.SchoolWeeks.Persistence;
 using SchoolSchedule.Infrastructure.SubjectAssignments.Persistence;
 using SchoolSchedule.Infrastructure.Subjects.Persistence;
-using SchoolSchedule.Infrastructure.TeacherAssignments;
+using SchoolSchedule.Infrastructure.TeacherAssignments.Persistence;
 using SchoolSchedule.Infrastructure.Teachers.Persistence;
 using SchoolSchedule.Infrastructure.UniteOfWork;
 using SchoolSchedule.Infrastructure.UserRoles.Persistence;

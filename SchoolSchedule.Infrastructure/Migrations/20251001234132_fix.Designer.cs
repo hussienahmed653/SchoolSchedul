@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SchoolSchedule.Infrastructure.DbConext;
 
@@ -11,9 +12,11 @@ using SchoolSchedule.Infrastructure.DbConext;
 namespace SchoolSchedule.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251001234132_fix")]
+    partial class fix
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -314,9 +317,6 @@ namespace SchoolSchedule.Infrastructure.Migrations
                     b.Property<int>("ClassSectionId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("SubjectAssignmentId")
-                        .HasColumnType("int");
-
                     b.Property<Guid>("TeacherAssignmentGuid")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier")
@@ -329,11 +329,8 @@ namespace SchoolSchedule.Infrastructure.Migrations
 
                     b.HasIndex("ClassSectionId");
 
-                    b.HasIndex("SubjectAssignmentId");
-
-                    b.HasIndex("TeacherId", "SubjectAssignmentId", "ClassSectionId")
-                        .IsUnique()
-                        .HasFilter("[SubjectAssignmentId] IS NOT NULL");
+                    b.HasIndex("TeacherId", "ClassSectionId")
+                        .IsUnique();
 
                     b.ToTable("TeacherAssignment");
                 });
@@ -506,11 +503,6 @@ namespace SchoolSchedule.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
-                    b.HasOne("SchoolSchedule.Domain.SubjectAssignment", "SubjectAssignment")
-                        .WithMany("TeacherAssignments")
-                        .HasForeignKey("SubjectAssignmentId")
-                        .OnDelete(DeleteBehavior.NoAction);
-
                     b.HasOne("SchoolSchedule.Domain.Teacher", "Teacher")
                         .WithMany("TeacherAssignments")
                         .HasForeignKey("TeacherId")
@@ -518,8 +510,6 @@ namespace SchoolSchedule.Infrastructure.Migrations
                         .IsRequired();
 
                     b.Navigation("ClassSection");
-
-                    b.Navigation("SubjectAssignment");
 
                     b.Navigation("Teacher");
                 });
@@ -614,8 +604,6 @@ namespace SchoolSchedule.Infrastructure.Migrations
 
             modelBuilder.Entity("SchoolSchedule.Domain.SubjectAssignment", b =>
                 {
-                    b.Navigation("TeacherAssignments");
-
                     b.Navigation("timeTableEntries");
                 });
 

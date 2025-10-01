@@ -23,6 +23,7 @@
         public bool IsDeleted { get; set; } = false;
         public DateTime? DeletedOn { get; set; }
         public ICollection<TimeTableEntry> timeTableEntries { get; set; } = new List<TimeTableEntry>();
+        public ICollection<TeacherAssignment> TeacherAssignments { get; set; } = new List<TeacherAssignment>();
 
     }
     public enum Key
