@@ -2,6 +2,7 @@
 using SchoolSchedule.Application.Common.Interfaces.MediatorInterfaces;
 using SchoolSchedule.Application.DTOs;
 using SchoolSchedule.Application.SubjectAssignments.Command.CreateSubjectAssignment;
+using SchoolSchedule.Application.SubjectAssignments.Query;
 
 namespace SchoolSchedule.Api.Controller
 {
@@ -19,6 +20,12 @@ namespace SchoolSchedule.Api.Controller
         public async Task<IActionResult> CreateSubjectAssignment(createSubjectAssignmentDto createSubjectAssignmentDto)
         {
             var result = await _mediator.Send(new CreateSubjectAssignmentCommand(createSubjectAssignmentDto));
+            return ProblemOr(result);
+        }
+        [HttpGet("GetAllSubjectAssignments")]
+        public async Task<IActionResult> GetAllSubjectAssignments(int pagenumber = 1)
+        {
+            var result = await _mediator.Send(new GetSubjectAssignmentQuery(pagenumber));
             return ProblemOr(result);
         }
     }

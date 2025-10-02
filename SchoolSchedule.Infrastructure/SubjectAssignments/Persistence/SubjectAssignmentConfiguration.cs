@@ -45,9 +45,6 @@ namespace SchoolSchedule.Infrastructure.SubjectAssignments.Persistence
                    .HasForeignKey(sa => sa.DepartementId)
                    .OnDelete(DeleteBehavior.NoAction);
 
-            builder.HasOne(sa => sa.ClassSection)
-           .WithMany(cs => cs.Assignments)
-           .HasForeignKey(sa => sa.ClassSectionId);
         }
     }
 }

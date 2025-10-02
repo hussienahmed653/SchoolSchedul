@@ -4,19 +4,12 @@
     {
         public int SubjectAssignmentId { get; set; }
         public Guid SubjectAssignmentGuid { get; set; }
-
         public int SubjectId { get; set; }
         public Subject Subject { get; set; }
-
         public int GradeId { get; set; }
         public Grade Grade { get; set; }
-
         public int DepartementId { get; set; }
         public Departement Departement { get; set; }
-
-        public int ClassSectionId { get; set; }
-        public ClassSection ClassSection { get; set; }
-
         public Key EvenOrOdd { get; set; }
         public int Amount { get; set; }
         public DateTime AddedOn { get; set; } = DateTime.UtcNow;

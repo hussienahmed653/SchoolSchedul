@@ -5,6 +5,7 @@ namespace SchoolSchedule.Application.DTOs
     public class GradeDto
     {
         public string GradeYear { get; set; }
-        public List<ClassSectionDto> ClassSections { get; set; } = new();
+        public List<DepartementMapperDto> Departements { get; set; } = new();
+        
     }
 }

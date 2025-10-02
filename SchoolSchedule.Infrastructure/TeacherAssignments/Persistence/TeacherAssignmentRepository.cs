@@ -26,8 +26,7 @@ namespace SchoolSchedule.Infrastructure.TeacherAssignments.Persistence
         {
             return await _context.TeacherAssignment
                 .SingleOrDefaultAsync(t => t.TeacherId == teacherAssignmentDto.TeacherId &&
-                            //t.SubjectId == teacherAssignmentDto.SubjectId &&
-                            //t.GradeId == teacherAssignmentDto.GradeId &&
+                            t.SubjectAssignmentId == teacherAssignmentDto.SubjectAssignmentId &&
                             t.ClassSectionId == teacherAssignmentDto.ClassSectionId);
         }
 

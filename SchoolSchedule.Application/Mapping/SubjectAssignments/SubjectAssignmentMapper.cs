@@ -7,12 +7,11 @@ namespace SchoolSchedule.Application.Mapping.SubjectAssignments
     {
         public static SubjectAssignment MapToSubjectAssignment(this createSubjectAssignmentDto dto)
         {
-            return new Domain.SubjectAssignment
+            return new SubjectAssignment
             {
                 SubjectId = dto.SubjectId,
                 GradeId = dto.GradeId,
                 DepartementId = dto.DepartementId,
-                ClassSectionId = dto.ClassSectionId,
                 EvenOrOdd = dto.EvenOrOdd,
                 Amount = dto.Amount,
             };

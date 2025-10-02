@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "CqtKasRqep0=",
+  "dgSpecHash": "Cua91dQ7FwE=",
   "success": true,
-  "projectFilePath": "C:\\Users\\hussi\\Source\\Repos\\SchoolSchedule\\SchoolSchedule.Domain\\SchoolSchedule.Domain.csproj",
+  "projectFilePath": "C:\\Users\\hussi\\source\\repos\\SchoolSchedule\\SchoolSchedule.Domain\\SchoolSchedule.Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hussi\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\hussi\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

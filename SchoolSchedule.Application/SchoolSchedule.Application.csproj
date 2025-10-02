@@ -7,6 +7,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Grades\Command\**" />
+    <Compile Remove="JobTitles\Command\**" />
+    <Compile Remove="TeacheAssignments\Query\**" />
+    <EmbeddedResource Remove="Grades\Command\**" />
+    <EmbeddedResource Remove="JobTitles\Command\**" />
+    <EmbeddedResource Remove="TeacheAssignments\Query\**" />
+    <None Remove="Grades\Command\**" />
+    <None Remove="JobTitles\Command\**" />
+    <None Remove="TeacheAssignments\Query\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
     <PackageReference Include="ErrorOr" Version="2.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.0" />
@@ -21,13 +33,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SchoolSchedule.Domain\SchoolSchedule.Domain.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Grades\Command\" />
-    <Folder Include="JobTitles\Command\" />
-    <Folder Include="SubjectAssignments\Query\" />
-    <Folder Include="TeacheAssignments\Query\" />
   </ItemGroup>
 
 </Project>

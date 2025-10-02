@@ -419,6 +419,29 @@
         }
       }
     },
+    "/api/SubjectAssignments/GetAllSubjectAssignments": {
+      "get": {
+        "tags": [
+          "SubjectAssignments"
+        ],
+        "parameters": [
+          {
+            "name": "pagenumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Subjects/AddSubject": {
       "post": {
         "tags": [
@@ -747,11 +770,7 @@
             "type": "integer",
             "format": "int32"
           },
-          "subjectId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "gradeId": {
+          "subjectAssignmentId": {
             "type": "integer",
             "format": "int32"
           },
