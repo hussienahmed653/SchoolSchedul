@@ -22,12 +22,12 @@ namespace SchoolSchedule.Application.SubjectAssignments.Query
             try
             {
                 await _uniteOfWork.BeginTransactionAsync();
-                var subjectassignment = await _subjectAssignmentRepository.GetAllAsync(request.pagenumber);
-                if(subjectassignment.Count is 0)
-                    return Error.NotFound(description: "لا توجد بيانات");
+                    var subjectassignment = await _subjectAssignmentRepository.GetAllAsync(request.pagenumber);
+                    if(subjectassignment.Count is 0)
+                        return Error.NotFound(description: "لا توجد بيانات");
 
-                await _uniteOfWork.CommitAsync();
-                return subjectassignment;
+                    await _uniteOfWork.CommitAsync();
+                    return subjectassignment;
             }
             catch
             {

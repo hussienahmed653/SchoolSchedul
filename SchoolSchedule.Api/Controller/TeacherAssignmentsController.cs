@@ -4,6 +4,7 @@ using SchoolSchedule.Application.Common.Interfaces.MediatorInterfaces;
 using SchoolSchedule.Application.DTOs;
 using SchoolSchedule.Application.TeacheAssignments.Command.CreateTeacherAssignment;
 using SchoolSchedule.Application.TeacheAssignments.Command.RemoveTeacherAssignment;
+using SchoolSchedule.Application.TeacheAssignments.Query;
 
 namespace SchoolSchedule.Api.Controller
 {
@@ -21,6 +22,12 @@ namespace SchoolSchedule.Api.Controller
         public async Task<IActionResult> CreateTeacherAssignment(TeacherAssignmentDto teacherAssignment)
         {
             var result = await _mediator.Send(new CreateTeacherAssignmentCommand(teacherAssignment));
+            return ProblemOr(result);
+        }
+        [HttpGet("GetTeacherAssignments")]
+        public async Task<IActionResult> GetTeacherAssignments(int? teacherassignmentId = null)
+        {
+            var result = await _mediator.Send(new GetTeacherAssignmentQuery(teacherassignmentId));
             return ProblemOr(result);
         }
         [HttpDelete("RemoveTeacherAssignment")]

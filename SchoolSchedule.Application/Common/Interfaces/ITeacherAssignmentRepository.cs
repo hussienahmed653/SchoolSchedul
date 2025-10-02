@@ -8,5 +8,7 @@ namespace SchoolSchedule.Application.Common.Interfaces
         Task AddAsync(TeacherAssignment teacherAssignment);
         Task<TeacherAssignment> Exists(TeacherAssignmentDto teacherAssignmentDto);
         Task RemoveAsync(TeacherAssignment teacherAssignment);
+        Task<List<TeacherAssignment>> GetAllAsync();
+        Task<TeacherAssignment> GetTeacherAssignmentByGuid(int? teacherassignmentId = null);
     }
 }

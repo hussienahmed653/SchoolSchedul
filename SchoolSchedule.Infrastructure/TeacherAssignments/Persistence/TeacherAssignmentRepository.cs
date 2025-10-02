@@ -30,6 +30,20 @@ namespace SchoolSchedule.Infrastructure.TeacherAssignments.Persistence
                             t.ClassSectionId == teacherAssignmentDto.ClassSectionId);
         }
 
+        public async Task<List<TeacherAssignment>> GetAllAsync()
+        {
+            return await _context.TeacherAssignment
+                .Include(t => t.SubjectAssignment)
+                .ToListAsync();
+        }
+
+        public Task<TeacherAssignment> GetTeacherAssignmentByGuid(int? teacherassignmentId = null)
+        {
+            return _context.TeacherAssignment
+                .Include(t => t.SubjectAssignment)
+                .SingleOrDefaultAsync(t => t.TeacherAssignmentId == teacherassignmentId)!;
+        }
+
         public async Task RemoveAsync(TeacherAssignment teacherAssignment)
         {
             _context.TeacherAssignment.Remove(teacherAssignment);

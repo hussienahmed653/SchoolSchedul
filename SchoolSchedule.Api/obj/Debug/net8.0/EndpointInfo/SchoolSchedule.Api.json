@@ -527,6 +527,28 @@
         }
       }
     },
+    "/api/TeacherAssignments/GetTeacherAssignments": {
+      "get": {
+        "tags": [
+          "TeacherAssignments"
+        ],
+        "parameters": [
+          {
+            "name": "teacherassignmentId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/TeacherAssignments/RemoveTeacherAssignment": {
       "delete": {
         "tags": [
