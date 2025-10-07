@@ -11,7 +11,7 @@ namespace SchoolSchedule.Application.DTOs
         public DateTime MinistryStartDate { get; set; } // تاريخ بداية الخدمة في وزارة التربية
         public DateTime SchoolStartDate { get; set; } // تاريخ بداية الخدمة في المدرسة
         public string WorkType { get; set; } // كلي / جزئي
-        public int Workload { get; set; } // النصاب
+        public int? Workload { get; set; } // النصاب
         public DateTime AddedOn { get; set; }
         public List<SubjectDto> Subject { get; set; } = new List<SubjectDto>();
     }
