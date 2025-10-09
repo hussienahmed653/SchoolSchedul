@@ -16,8 +16,10 @@ namespace SchoolSchedule.Infrastructure.TimeTableEntrys.Persistence
             builder.Property(t => t.TimeTableEntryGuid)
                 .HasDefaultValueSql("NEWID()");
 
-            builder.Property(t => t.IsPlaceHolder)
-                .HasComputedColumnSql("CASE WHEN [TeacherAssignmentId] IS NULL THEN 1 ELSE 0 END");
+            builder.ToTable(t =>
+            {
+                t.HasCheckConstraint("CK_TimeTableEntry_PeriodRange", "Period >= 1 AND Period <= 8");
+            });
 
             builder.HasOne(t => t.TeacherAssignment)
                 .WithMany(t => t.timeTableEntries)

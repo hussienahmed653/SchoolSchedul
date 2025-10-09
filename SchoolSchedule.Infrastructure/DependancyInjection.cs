@@ -19,6 +19,7 @@ using SchoolSchedule.Infrastructure.SubjectAssignments.Persistence;
 using SchoolSchedule.Infrastructure.Subjects.Persistence;
 using SchoolSchedule.Infrastructure.TeacherAssignments.Persistence;
 using SchoolSchedule.Infrastructure.Teachers.Persistence;
+using SchoolSchedule.Infrastructure.TimeTableEntrys.Persistence;
 using SchoolSchedule.Infrastructure.UniteOfWork;
 using SchoolSchedule.Infrastructure.UserRoles.Persistence;
 using SchoolSchedule.Infrastructure.Users.Persistence;
@@ -49,6 +50,7 @@ namespace SchoolSchedule.Infrastructure
             services.AddScoped<IRolesRepository, RolesRepository>();
             services.AddScoped<IUserRolesRepository, UserRolesRepository>();
             services.AddScoped<ISchoolWeekRepository, SchoolWeekRepository>();
+            services.AddScoped<ITimeTableEntryRepository, TimeTableEntryRepository>();
 
             services.AddAuthenticationDI(configuration)
                 .AddAuthenticationToSwagger();

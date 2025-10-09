@@ -640,6 +640,18 @@
           }
         }
       }
+    },
+    "/api/TimeTableEntrys/CreateTimeTableEntry": {
+      "post": {
+        "tags": [
+          "TimeTableEntrys"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": {

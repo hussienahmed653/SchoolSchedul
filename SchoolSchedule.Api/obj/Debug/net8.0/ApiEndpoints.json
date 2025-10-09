@@ -383,5 +383,15 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SchoolSchedule.Api.Controller.TimeTableEntrysController",
+    "Method": "CreateTimeTableEntry",
+    "RelativePath": "api/TimeTableEntrys/CreateTimeTableEntry",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
   }
 ]

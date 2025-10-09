@@ -33,14 +33,20 @@ namespace SchoolSchedule.Infrastructure.TeacherAssignments.Persistence
         public async Task<List<TeacherAssignment>> GetAllAsync()
         {
             return await _context.TeacherAssignment
+                .Include(t => t.Teacher)
                 .Include(t => t.SubjectAssignment)
+                    .ThenInclude(s => s.Subject)
+                .Include(t => t.ClassSection)
                 .ToListAsync();
         }
 
         public Task<TeacherAssignment> GetTeacherAssignmentByGuid(int? teacherassignmentId = null)
         {
             return _context.TeacherAssignment
+                .Include(t => t.Teacher)
                 .Include(t => t.SubjectAssignment)
+                    .ThenInclude(s => s.Subject)
+                .Include(t => t.ClassSection)
                 .SingleOrDefaultAsync(t => t.TeacherAssignmentId == teacherassignmentId)!;
         }
 

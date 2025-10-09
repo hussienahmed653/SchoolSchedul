@@ -32,4 +32,8 @@
     <ProjectReference Include="..\SchoolSchedule.Domain\SchoolSchedule.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="TimeTableEntries\Query\" />
+  </ItemGroup>
+
 </Project>
